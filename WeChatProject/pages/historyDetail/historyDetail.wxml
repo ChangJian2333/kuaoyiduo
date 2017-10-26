@@ -35,8 +35,8 @@
       <view class="td">日龄130以后的料蛋比</view>
     </view>
     <view class="tr">
-      <view class="td">{{response.henhouseNumber}}</view>
-      <view class="td">{{response.time}}</view>
+      <view class="td">{{response.tenegtoforage}}</view>
+      <view class="td">{{response.tenegtoforage2}}</view>
     </view>
   </view>
   <view class="advertisement">

@@ -58,9 +58,8 @@ Page({
       console.log(array)
       console.log('请求成功')
       wx.showToast({
-        title: '成功',
-        icon: null,
-        duration: 2000
+        title: '请求成功',
+        duration: 1000
       })
       for (var i = 0; i < array.length; i++) {
         var newDate = new Date();
@@ -76,9 +75,8 @@ Page({
     }
     var fail = function (resp) {
       wx.showToast({
-        title: '失败',
-        icon: 'success',
-        duration: 2000
+        title: '请求失败',
+        duration: 1000
       })
       console.log('请求失败')
       wx.hideNavigationBarLoading() //完成停止加载

@@ -1,0 +1,49 @@
+<!--modifyHistory.wxml-->
+<view class="content">
+  <view class="header">
+    <view class="header-title">
+      <text>历史记录修改</text>
+    </view>
+  </view> 
+  <view class="henhoust_Number">鸡舍号</view>
+  <view class="scrollClass">
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+      <view class="tr">
+        <view class="td bg-w">日期</view>
+        <block wx:for="{{listData}}">
+          <input disabled="disabled" type="text" value="{{item.recordDate}}" wx:if="{{index % 2 == 0}}" class="td bg-g"/>
+          <input disabled="disabled" type="text" value="{{item.recordDate}}" wx:else class="td"/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">喂料量</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.forageWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="WLLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.forageWeight}}" wx:else class="td" bindblur="WLLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">产蛋量</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.eggWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="CDLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.eggWeight}}" wx:else class="td" bindblur="CDLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">破蛋数</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.smashEgg}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="PDSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.smashEgg}}" wx:else class="td" bindblur="PDSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">死淘数</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.dieNumber}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.dieNumber}}" wx:else class="td" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+    </scroll-view>
+  </view>     
+</view>
+

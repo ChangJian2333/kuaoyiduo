@@ -1,0 +1,78 @@
+/* historyList.wxss */
+
+.content {
+  /* border: 0px solid darkgray; */
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 20rpx;
+}
+
+.header {
+  margin-left: 0rpx;
+  margin-right: 0rpx;
+  margin-top: 0rpx;
+}
+
+.header-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 30px;
+  text-align: center;
+}
+
+.header-placeholder {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  right: 20px;
+  height: 30px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 145rpx;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 40px;
+  align-items: center;
+  font-size: 17px;
+}
+.td {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+    font-size: 17px;
+}
+
+.td-link {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+    color: #09bb07;
+    font-size: 17px;
+}
+
+.bg-w{
+  background: #09bb07;
+}
+.bg-g{
+  background: #E6F3F9;
+}
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #09bb07;
+  color: #fff;
+  display: flex;
+  height: 40px;
+  align-items: center;
+}

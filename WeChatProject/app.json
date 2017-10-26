@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/detail",
+    "pages/registHenhouse/registHenhouse",
+    "pages/fillOutTable/fillOutTable",
+    "pages/historyList/historyList",
+    "pages/historyDetail/historyDetail",
+    "pages/modifyHistory/modifyHistory"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "快易多养殖",
+    "navigationBarTextStyle": "black"
+  }
+}

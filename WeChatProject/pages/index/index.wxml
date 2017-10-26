@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <view  class="userinfo">
+    <image class="userinfo-avatar" src="../image/conver.png" background-size="cover"></image>
+    
+  </view>
+  <view bindtap="pushDetailPage" class="usermotto">
+    <text class="usertext">{{motto}}</text>
+  </view>
+</view>

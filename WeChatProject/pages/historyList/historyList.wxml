@@ -1,0 +1,28 @@
+<!--historyList.wxml-->
+<view class="content">
+  <view class="header">
+    <view class="header-title">
+      <text>已淘汰记录</text>
+    </view>
+    <view class="header-placeholder">点击鸡舍号查看对应记录</view>
+  </view>  
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">鸡舍号</view>
+      <view class="th">上鸡日期</view>
+      <view class="th ">淘汰日期</view>
+    </view>
+    <block wx:for="{{listData}}">
+      <view class="tr bg-g" bindtap="clickCellRecord" data-tag="{{index}}" wx:if="{{index % 2 == 0}}">
+        <view class="td-link">{{item.henName}}</view>
+        <view class="td">{{item.startDate}}</view>
+        <view class="td" >{{item.recordDate}}</view>
+      </view>
+      <view class="tr" bindtap="clickCellRecord" data-tag="{{index}}" wx:else>
+        <view class="td-link" bindtap="clickCellRecord">{{item.henName}}</view>
+        <view class="td">{{item.startDate}}</view>
+        <view class="td">{{item.recordDate}}</view>
+      </view>
+    </block>
+  </view>
+</view>

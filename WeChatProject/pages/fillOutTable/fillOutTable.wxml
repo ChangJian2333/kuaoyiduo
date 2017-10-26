@@ -1,0 +1,45 @@
+<!--fillOutTable.wxml-->
+<view class="content">
+  <view class="header">
+    <view class="header-title">
+      <text>每日记录表</text>
+    </view>
+  </view>  
+  <view class="table">
+    <view class="tr-header">
+      <view class="td-header">舍号</view>
+      <view class="td-header">现存栏数（只）</view>
+    </view>
+    <view class="tr-list">
+        <view class="td-list">{{henName}}</view>
+        <view class="td-list">{{liveNumber}}</view>
+    </view>
+    <view class="tr-header">
+      <view class="td-header">日期</view>
+      <view class="td-header">日龄</view>
+    </view>
+    <view class="tr-list">
+        <view class="td-list">{{henhouseTime}}</view>
+        <view class="td-list">{{days}}</view>
+    </view>
+    <view class="tr-header">
+      <view class="td-header">名称</view>
+      <view class="td-header">参数</view>
+    </view>
+    <block wx:for="{{tableListData}}" wx:key="{{code}}">
+      <view class="tr-list bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td-list">{{item.text}}</view>
+        <input bindinput="bindKeyInput" value="{{item.value}}" type="{{item.keyboard}}" data-tag="{{item.code}}" placeholder="{{item.placeholder}}"/>
+      </view>
+      <view class="tr-list" wx:else>
+        <view class="td-list">{{item.text}}</view>
+        <input bindinput="bindKeyInput" value="{{item.value}}" type="{{item.keyboard}}" data-tag="{{item.code}}" placeholder="{{item.placeholder}}"/>
+      </view>
+    </block>
+  </view>
+  <view class="regist-title">
+      <view class="regist-title-left" bindtap="clickModifyHistory">修改历史记录</view>
+      <view class="regist-title-right" bindtap="clickSaveTable">保存</view>
+  </view>
+
+</view>

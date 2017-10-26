@@ -1,0 +1,55 @@
+<!--registHenhouse.wxml-->
+<view class="content">
+  <view class="header">
+    <view class="header-title">
+      <text>注册鸡舍表</text>
+    </view>
+  </view>  
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">名称</view>
+      <view class="th">参数</view>
+    </view>
+    <view class="tr bg-g">
+        <view class="td">姓名</view>
+        <input bindinput="bindKeyInput" value="{{name}}" type="text" data-tag="01" placeholder="请输入姓名"/>
+    </view>
+    <view class="tr">
+        <view class="td">电话</view>
+        <input bindinput="bindKeyInput" value="{{phoneNumber}}" type="number" data-tag="02" placeholder="请输入电话号码"/>
+    </view>
+    <view class="tr bg-g">
+        <view class="td">鸡舍号</view>
+        <input bindinput="bindKeyInput" type="text" data-tag="03" placeholder="请输入鸡舍号"/>
+    </view>
+    <view class="tr">
+        <view class="td">上鸡日期</view>
+        <picker mode="date" value="{{startTime}}" start="2017-01-01" end="{{nowTime}}" bindchange="bindDateChange">
+                <input value="{{startTime}}" disabled="false" data-tag="04" placeholder="请输入上鸡日期"/>
+        </picker>
+    </view>
+    <view class="tr bg-g">
+        <view class="td">上鸡日龄</view>
+        <input bindinput="bindKeyInput" type="number" data-tag="05" placeholder="请输入上鸡日龄"/>
+    </view>
+    <view class="tr">
+        <view class="td">只数</view>
+        <input bindinput="bindKeyInput" type="number" data-tag="06" placeholder="请输入鸡只数"/>
+    </view>
+    <view class="tr bg-g">
+        <view class="td">品种</view>
+        <input bindinput="bindKeyInput" type="text" data-tag="07" placeholder="请输入鸡品种"/>
+    </view>
+    <view class="tr">
+        <view class="td">饲料厂家</view>
+        <input bindinput="bindKeyInput" type="text" data-tag="08" placeholder="请输入厂家名称"/>
+    </view>
+    <view class="tr bg-g">
+        <view class="td">鸡舍地址</view>
+        <input bindinput="bindKeyInput" type="text" data-tag="09" placeholder="请输入鸡舍地址"/>
+    </view>
+  </view>
+  <view class="regist-title" bindtap="clickRegistHenhouse">
+      <view>确定</view>
+  </view>
+</view>

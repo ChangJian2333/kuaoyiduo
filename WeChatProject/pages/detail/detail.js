@@ -64,7 +64,7 @@ Page({
         newDate.setTime(array[i].recordDate)
         // var str = newDate.toLocaleDateString()
         // var strrrr = str.replace("/", "-")
-        array[i].recordDate = that.formatTime(newDate)//strrrr.replace("/", "-")
+        array[i].recordDate = that.formatTime(newDate,'Y-M-D')//strrrr.replace("/", "-")
         console.log(array[i].recordDate)
       }
       that.setData({
@@ -83,11 +83,28 @@ Page({
     network.request('GET',url, param, success, fail)
   },
 
-  formatTime: function (date) {
-     var year = date.getFullYear()
- var month = date.getMonth() + 1
-   var day = date.getDate()
-    return year + '-' + month + '-' + day
+  formatTime: function (date, format) {  
+  
+    var formateArr  = ['Y', 'M', 'D', 'h', 'm', 's'];  
+    var returnArr   = [];  
+  
+    returnArr.push(date.getFullYear());  
+    returnArr.push(this.formatNumber(date.getMonth() + 1));  
+    returnArr.push(this.formatNumber(date.getDate()));  
+  
+    returnArr.push(this.formatNumber(date.getHours()));  
+    returnArr.push(this.formatNumber(date.getMinutes()));  
+    returnArr.push(this.formatNumber(date.getSeconds()));  
+  
+    for(var i in returnArr){
+      format = format.replace(formateArr[i], returnArr[i]);
+    }
+    return format;  
+  },  
+
+  formatNumber:function (n) {  
+    n = n.toString()  
+    return n[1] ? n : '0' + n
   },
 
   /**

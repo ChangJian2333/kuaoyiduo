@@ -140,6 +140,12 @@ changeRequest:function(param){
         var code = res.data.resp_head.retcode
         if (code = 1) {
           console.log(array);
+          for (var i = 0; i < array.length; i++) {
+            var newDate = new Date();
+            newDate.setTime(array[i].recordDate)
+            array[i].recordDate = that.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
+            console.log(array[i].recordDate)
+          }
           that.setData({
             listData: array,
           })
@@ -154,6 +160,30 @@ changeRequest:function(param){
         wx.stopPullDownRefresh() //停止下拉刷新
       },
     })
+  },
+
+  formatTime: function (date, format) {
+
+    var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+    var returnArr = [];
+
+    returnArr.push(date.getFullYear());
+    returnArr.push(this.formatNumber(date.getMonth() + 1));
+    returnArr.push(this.formatNumber(date.getDate()));
+
+    returnArr.push(this.formatNumber(date.getHours()));
+    returnArr.push(this.formatNumber(date.getMinutes()));
+    returnArr.push(this.formatNumber(date.getSeconds()));
+
+    for (var i in returnArr) {
+      format = format.replace(formateArr[i], returnArr[i]);
+    }
+    return format;
+  },
+
+  formatNumber: function (n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
   },
 
   /**

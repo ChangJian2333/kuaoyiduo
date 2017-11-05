@@ -90,10 +90,20 @@ changeRequest:function(param){
       var array = res.data.resp_body
       var code = res.data.resp_head.retcode
       if (code = 1) {
+        wx.showToast({
+          title: '修改成功',
+          icon: 'success',
+          duration: 1000
+        })
         console.log("成功");
       }
     },
     fail: function (res) {
+      wx.showToast({
+        title: '修改失败',
+        icon: 'fail',
+        duration: 1000
+      })
       console.log("失败");
       console.log(res);
     },

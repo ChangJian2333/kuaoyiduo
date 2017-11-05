@@ -31,7 +31,7 @@
       <view class="td">{{response.totaleggWeight}}</view>
     </view>
     <view class="tr bg-g">
-      <view class="td">近10天的蛋料比</view>
+      <view class="td">近10天的料蛋比</view>
       <view class="td">日龄130以后的料蛋比</view>
     </view>
     <view class="tr">
@@ -40,6 +40,6 @@
     </view>
   </view>
   <view class="advertisement">
-      <image class="userinfo-avatar" src="../image/conver.png" background-size="cover"></image>
+      <image class="userinfo-avatar" src="{{response.imagurl}}" background-size="cover"></image>
   </view>
 </view>

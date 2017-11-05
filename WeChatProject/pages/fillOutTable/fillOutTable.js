@@ -181,6 +181,7 @@ Page({
 
   saveRequest() {
     var that = this;
+    var hudTool = require("../../tool/HUDTool.js")
     console.log("网络请求");
     console.log(that.data.page);
     var param = {
@@ -197,8 +198,9 @@ Page({
       earn: that.data.earn,
       remark: that.data.remark,
       // rd_session: app.globalData.rd_session,
-      };
-      console.log(param);
+    };
+    console.log(param);
+    hudTool.showLoading('保存中')
     wx.request({
       url: app.globalData.baseUrl + "recordHenrecord?status=" + that.data.status + '&rd_session=' + app.globalData.rd_session, 
       method: 'POST',
@@ -208,6 +210,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
+        hudTool.cancelLoading()
         console.log(res.data);
         var code = res.data.resp_head.retcode
         if (code = 1) {
@@ -230,6 +233,7 @@ Page({
         }
       },
       fail: function (res) {
+        hudTool.cancelLoading()
         console.log("失败");
         console.log(res);
       },

@@ -16,7 +16,7 @@ Page({
       { "code":"4", "keyLeft": "henhouseNumber", "keyRight": "time" },
       { "code":"5", "keyLeft": "累计喂料量（斤）", "keyRight": "累计产蛋量（斤）"},
       { "code":"6", "keyLeft": "henhouseNumber", "keyRight": "time" },
-      { "code":"7", "keyLeft": "近10天的蛋料比", "keyRight": "日龄130以后的料蛋比"},
+      { "code": "7", "keyLeft": "近10天的料蛋比", "keyRight": "日龄130以后的料蛋比"},
       { "code":"8", "keyLeft": "henhouseNumber", "keyRight": "time" },
     ],
     henName:'',

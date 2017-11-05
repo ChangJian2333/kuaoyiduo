@@ -33,7 +33,7 @@ Page({
   clickCellRecord: function (e) {
     var itemData = e.currentTarget.dataset.tag;
     wx.navigateTo({
-      url: '../fillOutTable/fillOutTable?henName=' + itemData.henName + '&henhouseTime=' + itemData.startDate + '&days=' + itemData.startAge + '&historyId=' + itemData.id + '&liveNumber=' + itemData.numbers,
+      url: '../fillOutTable/fillOutTable?henName=' + itemData.henName + '&henhouseTime=' + itemData.recordDate + '&days=' + itemData.startAge + '&historyId=' + itemData.id + '&liveNumber=' + itemData.numbers,
     })
   },
   /**
@@ -48,24 +48,24 @@ Page({
   pullData() {
     var that = this
     var network = require("../../tool/NetWorkManager.js")
+    var hudTool = require("../../tool/HUDTool.js")
     var url = app.globalData.baseUrl + "henhouses?rd_session=" + app.globalData.rd_session
     var param = {
       status: '1',
     }
     var success = function (resp) {
+      hudTool.cancelLoading()
       var array = resp.resp_body
       console.log(resp)
       console.log(array)
       console.log('请求成功')
-      wx.showToast({
-        title: '请求成功',
-        duration: 1000
-      })
       for (var i = 0; i < array.length; i++) {
         var newDate = new Date();
-        newDate.setTime(array[i].startDate)
-        array[i].startDate = newDate.toLocaleDateString()
-        console.log(array[i].startDate)
+        newDate.setTime(array[i].recordDate)
+        // var str = newDate.toLocaleDateString()
+        // var strrrr = str.replace("/", "-")
+        array[i].recordDate = that.formatTime(newDate)//strrrr.replace("/", "-")
+        console.log(array[i].recordDate)
       }
       that.setData({
         listData: array,
@@ -74,15 +74,20 @@ Page({
       wx.stopPullDownRefresh() //停止下拉刷新
     }
     var fail = function (resp) {
-      wx.showToast({
-        title: '请求失败',
-        duration: 1000
-      })
+      hudTool.cancelLoading()
       console.log('请求失败')
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }
+    hudTool.showLoading('请求中')
     network.request('GET',url, param, success, fail)
+  },
+
+  formatTime: function (date) {
+     var year = date.getFullYear()
+ var month = date.getMonth() + 1
+   var day = date.getDate()
+    return year + '-' + month + '-' + day
   },
 
   /**

@@ -139,6 +139,7 @@ Page({
    */
   commitRequest:function(){
     var that = this;
+    var hudTool = require("../../tool/HUDTool.js")
     console.log("网络请求");
     console.log(that.data.page);
     var param = {
@@ -156,8 +157,9 @@ Page({
       // 1 记录中 0 结束记录
       status:'1',
       // rd_session: app.globalData.rd_session,
-      };
-      console.log(param);
+    };
+    console.log(param);
+    hudTool.showLoading('注册中')
     wx.request({
       url: app.globalData.baseUrl + "registHenhouse?rd_session=" + app.globalData.rd_session,
       method:'POST',
@@ -166,6 +168,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
+        hudTool.cancelLoading()
         console.log(res.data);
         var code = res.data.resp_head.retcode
         if (code = 1) {
@@ -177,6 +180,7 @@ Page({
         }
       },
       fail: function (res) {
+        hudTool.cancelLoading()
         console.log("失败");
         console.log(res);
       },

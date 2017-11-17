@@ -24,7 +24,7 @@
     </view>
     <view class="tr">
         <view class="td">上鸡日期</view>
-        <picker mode="date" value="{{startTime}}" start="2017-01-01" end="{{nowTime}}" bindchange="bindDateChange">
+        <picker mode="date" value="{{startTime}}" start="2015-01-01" end="{{nowTime}}" bindchange="bindDateChange">
                 <input value="{{startTime}}" disabled="false" data-tag="04" placeholder="请输入上鸡日期"/>
         </picker>
     </view>

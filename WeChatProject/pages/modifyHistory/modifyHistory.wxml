@@ -5,16 +5,16 @@
       <text>历史记录修改</text>
     </view>
   </view> 
-  <view class="henhoust_Number">鸡舍号</view>
+  <view class="henhoust_Number">鸡舍号：{{henName}}</view>
   <view class="scrollClass">
-    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
-      <view class="tr">
-        <view class="td bg-w">日期</view>
-        <block wx:for="{{listData}}">
-          <input disabled="disabled" type="text" value="{{item.recordDate}}" wx:if="{{index % 2 == 0}}" class="td bg-g"/>
-          <input disabled="disabled" type="text" value="{{item.recordDate}}" wx:else class="td"/>
-        </block>
-      </view>
+    <view class="leftTime">
+      <view class="td bg-w">日期</view>
+      <block wx:for="{{listData}}">
+        <input disabled="disabled" type="text" value="{{item.recordDate}}" wx:if="{{index % 2 == 0}}" class="td bg-g"/>
+        <input disabled="disabled" type="text" value="{{item.recordDate}}" wx:else class="td"/>
+      </block>
+    </view>
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 70%">
       <view class="tr">
         <view class="td bg-w">喂料量</view>
         <block wx:for="{{listData}}">

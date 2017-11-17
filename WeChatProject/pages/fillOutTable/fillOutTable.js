@@ -7,7 +7,7 @@ Page({
    */
   data: {
     tableListData: [
-      { "code": "01", keyboard: "digit", "text": "喂料量(斤)", "value":"0", "placeholder": "请输入喂料量" },
+      { "code": "01", keyboard: "digit", "text": "*喂料量(斤)", "value":"0", "placeholder": "请输入喂料量" },
       { "code": "02", keyboard: "digit", "text": "产蛋量(斤)", "value":"0", "placeholder": "请输入产蛋量" },
       { "code": "03", keyboard: "digit", "text": "破蛋数(枚)", "value":"0", "placeholder": "请输入破蛋数" },
       { "code": "04", keyboard: "digit", "text": "死淘数(只)", "value":"0", "placeholder": "请输入死淘数" },
@@ -28,7 +28,7 @@ Page({
     // 日龄
     days:'',
     // 饲料量
-    forageWeight:'0',
+    forageWeight: '0',
     // 产蛋量
     eggWeight:'0',
     // 破蛋数
@@ -112,15 +112,16 @@ Page({
    */
   clickModifyHistory:function(){
     wx.navigateTo({
-      url: '../modifyHistory/modifyHistory?historyId=' + this.data.historyId,
+      url: '../modifyHistory/modifyHistory?historyId=' + this.data.historyId + '&henName=' + this.data.henName,
     })
   },
 
   //验证字符串是否是数字
-  checkParam: function () {
+  checkParam:function (){
     var param = this.data;
     var title = '';
-    var reg = /^[0-9]+.?[0-9]*$/;
+    var regu = /^[1-9]\d*(\.\d+)?$/;
+    var reg = new RegExp(regu);
     if (reg.test(param.forageWeight)) {
       title = '喂料量输入有误！'
     } else if (reg.test(param.eggWeight)) {
@@ -137,6 +138,16 @@ Page({
       title = '当日支出输入有误！'
     } else if (reg.test(param.earn)) {
       title = '当日收入输入有误！'
+    }
+
+    if (this.data.days >= 150) {
+      if (!(param.eggWeight > 0)) {
+        title = '产蛋量必填！'
+      }
+    }
+
+    if (!(param.forageWeight > 0)){
+      title = '喂料量必填！'
     }
           
     if(title){
@@ -158,7 +169,8 @@ Page({
    */
   clickSaveTable:function (){
     var that = this;
-    if (this.checkParam){
+    var status = this.checkParam()
+    if (status){
       if (this.data.dieNumber == this.data.liveNumber) {
         wx.showModal({
           title: '现存栏数不足1只',
@@ -170,6 +182,16 @@ Page({
                 status: '0'
               });
               that.saveRequest();
+            }
+          }
+        })
+      } else if (this.data.dieNumber > this.data.liveNumber){
+        wx.showModal({
+          title: '死淘数输入有误',
+          content: '死淘数超出现存栏数，请重新输入！',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定');
             }
           }
         })
@@ -244,13 +266,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  this.setData({
-    henName: options.henName,
-    henhouseTime: options.henhouseTime,
-    days:options.days,
-    historyId: options.historyId,
-    liveNumber: options.liveNumber,
-  });
+    var eggWeight = '产蛋量(斤)'
+    if (options.days >= 150){
+      eggWeight = '*产蛋量(斤)'
+    }
+    var list = this.data.tableListData
+    list[1].text = eggWeight
+    this.setData({
+      henName: options.henName,
+      henhouseTime: options.henhouseTime,
+      days:options.days,
+      historyId: options.historyId,
+      liveNumber: options.liveNumber,
+      tableListData: list,
+    });
   },
 
   /**

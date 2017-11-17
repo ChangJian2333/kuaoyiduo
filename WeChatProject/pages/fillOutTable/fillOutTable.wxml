@@ -7,21 +7,21 @@
   </view>  
   <view class="table">
     <view class="tr-header">
-      <view class="td-header">舍号</view>
-      <view class="td-header">现存栏数（只）</view>
+      <view class="td-header">舍号: {{henName}}</view>
+      <view class="td-header">现存栏数: {{liveNumber}}（只）</view>
     </view>
-    <view class="tr-list">
+    <!-- <view class="tr-list">
         <view class="td-list">{{henName}}</view>
         <view class="td-list">{{liveNumber}}</view>
-    </view>
+    </view> -->
     <view class="tr-header">
-      <view class="td-header">日期</view>
-      <view class="td-header">日龄</view>
+      <view class="td-header">日期: {{henhouseTime}}</view>
+      <view class="td-header">日龄: {{days}}</view>
     </view>
-    <view class="tr-list">
+    <!-- <view class="tr-list">
         <view class="td-list">{{henhouseTime}}</view>
         <view class="td-list">{{days}}</view>
-    </view>
+    </view> -->
     <view class="tr-header">
       <view class="td-header">名称</view>
       <view class="td-header">参数</view>

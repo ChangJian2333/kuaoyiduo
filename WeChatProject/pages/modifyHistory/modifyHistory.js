@@ -9,6 +9,8 @@ Page({
     listData: [
 
     ],
+    // 鸡舍名字
+    henName:'',
     historyId:null,
   },
   
@@ -116,6 +118,7 @@ changeRequest:function(param){
   onLoad: function (options) {
     this.setData({
       historyId: options.historyId,
+      henName: options.henName,
     });
     this.pullData();
   },

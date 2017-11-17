@@ -7,7 +7,8 @@
     "pages/fillOutTable/fillOutTable",
     "pages/historyList/historyList",
     "pages/historyDetail/historyDetail",
-    "pages/modifyHistory/modifyHistory"
+    "pages/modifyHistory/modifyHistory",
+    "pages/performance/performance"
   ],
   "window": {
     "backgroundTextStyle": "light",

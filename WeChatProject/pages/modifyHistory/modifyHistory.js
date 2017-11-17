@@ -12,6 +12,7 @@ Page({
     // 鸡舍名字
     henName:'',
     historyId:null,
+    scrollviewWid: 100,
   },
   
   /**
@@ -73,7 +74,76 @@ Page({
       this.changeRequest(item);
     }
   },
-  // rd_session: app.globalData.rd_session,
+  /**
+     * 平均体重修改
+     */
+  PJTZbindKeyBlur: function (e) {
+    var item = this.data.listData[e.currentTarget.dataset.tag];
+    if (item.avgWeight != e.detail.value) { // 参数修改了
+      console.log(e.currentTarget.dataset.tag);
+      console.log(e.detail.value);
+      item.avgWeight = e.detail.value
+      item['henNo'] = this.data.historyId
+      console.log(item)
+      this.changeRequest(item);
+    }
+  },
+  /**
+   * 平均蛋重修改
+   */
+  PJDZbindKeyBlur: function (e) {
+    var item = this.data.listData[e.currentTarget.dataset.tag];
+    if (item.avgeggWeight != e.detail.value) { // 参数修改了
+      console.log(e.currentTarget.dataset.tag);
+      console.log(e.detail.value);
+      item.avgeggWeight = e.detail.value
+      item['henNo'] = this.data.historyId
+      console.log(item)
+      this.changeRequest(item);
+    }
+  },
+  /**
+   * 当日支出修改
+   */
+  DRZCbindKeyBlur: function (e) {
+    var item = this.data.listData[e.currentTarget.dataset.tag];
+    if (item.pay != e.detail.value) { // 参数修改了
+      console.log(e.currentTarget.dataset.tag);
+      console.log(e.detail.value);
+      item.pay = e.detail.value
+      item['henNo'] = this.data.historyId
+      console.log(item)
+      this.changeRequest(item);
+    }
+  },
+  /**
+   * 当日收入修改
+   */
+  DRSRbindKeyBlur: function (e) {
+    var item = this.data.listData[e.currentTarget.dataset.tag];
+    if (item.earn != e.detail.value) { // 参数修改了
+      console.log(e.currentTarget.dataset.tag);
+      console.log(e.detail.value);
+      item.earn = e.detail.value
+      item['henNo'] = this.data.historyId
+      console.log(item)
+      this.changeRequest(item);
+    }
+  },
+  /**
+   * 当日备注修改
+   */
+  DRBZbindKeyBlur: function (e) {
+    var item = this.data.listData[e.currentTarget.dataset.tag];
+    if (item.remark != e.detail.value) { // 参数修改了
+      console.log(e.currentTarget.dataset.tag);
+      console.log(e.detail.value);
+      item.remark = e.detail.value
+      item['henNo'] = this.data.historyId
+      console.log(item)
+      this.changeRequest(item);
+    }
+  },
 changeRequest:function(param){
   var that = this;
   console.log("网络请求");
@@ -116,6 +186,17 @@ changeRequest:function(param){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    wx.getSystemInfo({
+      success: function(res) {
+        var windowWidth = res.windowWidth; 
+        that.setData({
+          historyId: options.historyId,
+          henName: options.henName,
+          scrollviewWid: windowWidth - 100 - 20,
+        });
+      },
+    })
     this.setData({
       historyId: options.historyId,
       henName: options.henName,

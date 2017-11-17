@@ -1,4 +1,4 @@
-/* modifyHistory.wxss */
+/* performance.wxss */
 .content {
   /* border: 0px solid darkgray; */
   top: 0px;
@@ -40,16 +40,28 @@
 }
 
 .scrollClass {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 8px;
   margin-bottom: 20px;
-  display: flex;
+  /* display: flex; */
 }
 .leftTime {
   margin-left: 10px;
   margin-top: 0px;
   width: 100px;
+}
+
+.line-tr {
+  display: flex;
+  width: 900px;
+}
+.line-td {
+    width:100px;
+    justify-content: center; 
+    text-align: center;
+    font-size: 17px;
+    height: 30px; 
 }
 
 .tr {
@@ -92,5 +104,5 @@
   margin-left: 0px;
   margin-right: 10px;
   margin-top: 0px;
-  white-space: nowrap;
+   white-space: nowrap; 
 }

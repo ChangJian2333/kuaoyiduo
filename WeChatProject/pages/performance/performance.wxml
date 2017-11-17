@@ -1,0 +1,100 @@
+<!--performance.wxml-->
+<view class="content">
+  <view class="header">
+    <view class="header-title">
+      <text>生产性能</text>
+    </view>
+  </view> 
+  <view class="henhoust_Number">鸡舍号：{{henName}}</view>
+  <view class="scrollClass">
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: {{scrollviewWid}}px">
+      <view class="line-tr">
+        <block wx:for="{{sumTitleList}}">
+          <view class="line-td bg-w">{{item.text}}</view>
+        </block>
+      </view>
+      <view class="line-tr">
+        <block wx:for="{{sumTitleList}}">
+          <view class="line-td bg-g">参数</view>
+        </block>
+      </view>
+      <view class="line-tr">
+        <block wx:for="{{titleList}}">
+          <view class="line-td bg-w" style=" word-break: break-all">{{item.text}}</view>
+        </block>
+      </view>
+<!-- 日期 -->
+      <view class="tr">  
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 日龄 -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 料蛋比       -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 产蛋量       -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 喂料量       -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 150天后累计料蛋比       -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 蛋重 -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 当天产蛋率       -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+<!-- 备注       -->
+      <view class="tr"> 
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">1</view>
+          <view class="td" wx:else>2</view>
+        </block>
+      </view>
+
+      <!-- <block wx:for="{{listData}}">
+        <view class="tr">
+          <block wx:for="{{titleList}}">
+            <view class="td bg-w">{{item.text}}</view>
+          </block>
+        </view>
+      </block> -->
+    </scroll-view>
+  </view>     
+</view>
+

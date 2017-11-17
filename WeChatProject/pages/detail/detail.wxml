@@ -20,13 +20,13 @@
     </view>
     <block wx:for="{{listData}}">
       <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
-        <view class="td">{{item.henName}}</view>
-        <view class="td">{{item.recordDate}}</view>
+        <view class="td" bindtap="pushToPerformance">{{item.henName}}</view>
+        <view class="td" bindtap="pushToPerformance">{{item.recordDate}}</view>
         <view class="td-link" bindtap="clickCellRecord" data-tag="{{item}}">记录</view>
       </view>
       <view class="tr" wx:else>
-        <view class="td">{{item.henName}}</view>
-        <view class="td">{{item.recordDate}}</view>
+        <view class="td" bindtap="pushToPerformance">{{item.henName}}</view>
+        <view class="td" bindtap="pushToPerformance">{{item.recordDate}}</view>
         <view class="td-link" bindtap="clickCellRecord" data-tag="{{item}}">记录</view>
       </view>
     </block>

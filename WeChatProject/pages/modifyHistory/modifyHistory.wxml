@@ -14,7 +14,7 @@
         <input disabled="disabled" type="text" value="{{item.recordDate}}" wx:else class="td"/>
       </block>
     </view>
-    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 70%">
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: {{scrollviewWid}}px">
       <view class="tr">
         <view class="td bg-w">喂料量</view>
         <block wx:for="{{listData}}">
@@ -41,6 +41,41 @@
         <block wx:for="{{listData}}">
            <input value="{{item.dieNumber}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
            <input value="{{item.dieNumber}}" wx:else class="td" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">平均体重</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.avgWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="PJTZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.avgWeight}}" wx:else class="td" bindblur="PJTZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">平均蛋重</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.avgeggWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="PJDZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.avgeggWeight}}" wx:else class="td" bindblur="PJDZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">当日支出</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.pay}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="DRZCbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.pay}}" wx:else class="td" bindblur="DRZCbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">当日收入</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.earn}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.earn}}" wx:else class="td" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+        </block>
+      </view>
+      <view class="tr">
+        <view class="td bg-w">当日备注</view>
+        <block wx:for="{{listData}}">
+           <input value="{{item.remark}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="DRBZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.remark}}" wx:else class="td" bindblur="DRBZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
         </block>
       </view>
     </scroll-view>

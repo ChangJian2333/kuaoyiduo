@@ -19,6 +19,15 @@ Page({
     })
   },
 
+  /**
+   * 点击查看鸡舍详情
+   */
+  pushToPerformance: function () {
+    wx.navigateTo({
+      url: '../performance/performance',
+    })
+  },
+
 /**
    * 点击注册鸡舍
    */

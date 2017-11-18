@@ -120,23 +120,27 @@ Page({
   checkParam:function (){
     var param = this.data;
     var title = '';
-    var regu = /^[1-9]\d*(\.\d+)?$/;
+    var zhengshu = /^\+*\d+$/;
+    var xiaoshu = /^0*[.]\d+$/;
+    var regu = /^[0-9]+([.]{0,1}[0-9]+){0,1}$/;
     var reg = new RegExp(regu);
-    if (reg.test(param.forageWeight)) {
+    // var regggg = new RegExp(xiaoshu);
+    //  || regggg.test(param.forageWeight)
+    if (!reg.test(param.forageWeight) && param.smashEgg.length > 0) {
       title = '喂料量输入有误！'
-    } else if (reg.test(param.eggWeight)) {
+    } else if (!reg.test(param.eggWeight) && param.smashEgg.length > 0) {
       title = '产蛋量输入有误！'
-    } else if (reg.test(param.smashEgg)) {
+    } else if (!reg.test(param.smashEgg) && param.smashEgg.length > 0) {
       title = '破蛋数输入有误！'
-    } else if (reg.test(param.dieNumber)) {
+    } else if (!reg.test(param.dieNumber) && param.dieNumber.length > 0) {
       title = '死淘数输入有误！'
-    } else if (reg.test(param.chickMiddleweight)) {
+    } else if (!reg.test(param.chickMiddleweight) && param.chickMiddleweight.length > 0) {
       title = '平均体重输入有误！'
-    } else if (reg.test(param.eggMiddleweight)) {
+    } else if (!reg.test(param.eggMiddleweight) && param.eggMiddleweight.length > 0) {
       title = '平均蛋重输入有误！'
-    } else if (reg.test(param.pay)) {
+    } else if (!reg.test(param.pay) && param.pay.length > 0) {
       title = '当日支出输入有误！'
-    } else if (reg.test(param.earn)) {
+    } else if (!reg.test(param.earn) && param.earn.length > 0) {
       title = '当日收入输入有误！'
     }
 
@@ -235,7 +239,7 @@ Page({
         hudTool.cancelLoading()
         console.log(res.data);
         var code = res.data.resp_head.retcode
-        if (code = 1) {
+        if (code == 1) {
           wx.showModal({  //保存成功
             title: '保存完成',
             content: '是否前往查看详细记录？',

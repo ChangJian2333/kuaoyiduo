@@ -41,11 +41,14 @@ App({
           // console.log('请求地址为' + getUrl)
           wx.getUserInfo({
             success: function (res) {
+              console.log(res)
+              that.globalData.avatarUrl = res.userInfo.avatarUrl
+              that.globalData.nickName = res.userInfo.nickName
               wx.request({
 
                 // url: 'https://66981293.qcloud.la/api/getOpenId',
-                // url: 'http://192.168.1.3:8080/api/getOpenId',
-                url: getUrl,
+                url: 'http://192.168.1.4:8080/api/getOpenId',
+                // url: getUrl,
                 data: {
                   code: code
                 },
@@ -56,9 +59,21 @@ App({
                 },
                 success: function (res) {
                   console.log(res);
-                  that.globalData.userInfo = res.data.result;
-                  that.globalData.rd_session = res.data;
-                  wx.setStorageSync('userInfo', res);//存储openid    
+                  that.globalData.userInfo = res.data;
+                  that.globalData.rd_session = res.data.rd_session;
+                  var array = res.data.authorities;
+                  for (var i = 0; i < array.length; i++) {
+                    if ('ROLE_ADMIN' == array[i]){
+                      that.globalData.isAdmin = true;
+                      break;
+                    }
+                  }
+                  if (res.data.username != null){
+                    that.globalData.nickName = res.data.username
+                  }
+                  wx.setStorageSync('userInfo', res.data);//存储openid   
+                  console.log(res.data); 
+                  console.log(res.data.rd_session); 
                 },
                 fail: function (res) {
                   console.log("失败");
@@ -85,9 +100,12 @@ App({
 
   globalData: {
     userInfo: null,
+    avatarUrl:null,
+    nickName:null,
     rd_session:"",
+    isAdmin:false,
     // baseUrl: 'https://66981293.qcloud.la/api/wechat/',
-    // baseUrl:'http://192.168.1.3:8080/api/wechat/'
-    baseUrl: 'https://75003247.kuaiyidduoyz.com/api/wechat/',
+    baseUrl:'http://192.168.1.4:8080/api/wechat/'
+    // baseUrl: 'https://75003247.kuaiyidduoyz.com/api/wechat/',
   }
 })

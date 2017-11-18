@@ -171,18 +171,29 @@ Page({
         hudTool.cancelLoading()
         console.log(res.data);
         var code = res.data.resp_head.retcode
-        if (code = 1) {
+        if (code == 1) {
           wx.navigateBack({ //保存成功返回上级页面
             delta: 1
           })
         } else {
           console.log('请求失败了');
+          var message = res.data.resp_head.message
+          wx.showToast({
+            title: message,
+            icon: 'fail',
+            duration: 1000
+          })
         }
       },
       fail: function (res) {
         hudTool.cancelLoading()
         console.log("失败");
         console.log(res);
+        wx.showToast({
+          title: '注册失败',
+          icon: 'fail',
+          duration: 1000
+        })
       },
     })
   },
@@ -199,8 +210,8 @@ Page({
     console.log(app.globalData);
     this.setData({
       nowTime: timestamp,
-      name: app.globalData.userInfo.name,
-      phoneNumber: app.globalData.userInfo.phoneNumber,
+      name: app.globalData.userInfo.username,
+      phoneNumber: app.globalData.userInfo.phone,
     })
     console.log(this.data.name + this.data.phoneNumber + 'hhhh');
   },

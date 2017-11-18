@@ -4,6 +4,14 @@ var app = getApp()
 Page({
   data: {
     motto: '进入快易多养殖',
+    iconUrl:null,
+    username:null,
+    listData:[
+      { 'icon': '', 'text': '注册新养殖' },
+      { 'icon': '', 'text': '查看记录中' },
+      { 'icon': '', 'text': '查看已淘汰' },
+      { 'icon': '', 'text': '搜索内部鸡舍' },
+    ],
   },
 
 
@@ -18,13 +26,10 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      console.log(userInfo);
-      that.setData({
-        userInfo:userInfo
-      })
+    that.setData({
+      iconUrl: app.globalData.avatarUrl,
+      username: app.globalData.nickName
     })
+    
   }
 })

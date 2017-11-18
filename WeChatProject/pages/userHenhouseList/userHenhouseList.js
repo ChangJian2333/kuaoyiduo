@@ -1,4 +1,4 @@
-// detail.js
+
 var app = getApp()
 Page({
 
@@ -7,18 +7,29 @@ Page({
    */
   data: {
     listData: [
-      
+
     ],
-    isAdmin:false,
+    lookStatus:'1',
+    phone:null,
   },
-/**
-   * 点击查看已淘汰批次
-   */
-  clickEndRegistHenhouse: function(){
-    wx.navigateTo({
-      // url: '../historyList/historyList',
-      url: '../searchUser/searchUser',
+  /**
+     * 点击查看记录中批次
+     */
+  clickOnlineHenhouse: function () {
+    this.setData({
+      lookStatus:'1'
     })
+    this.pullData()
+  },
+  
+  /**
+     * 点击查看已淘汰批次
+     */
+  clickEndHenhouse: function() {
+    this.setData({
+      lookStatus: '0'
+    })
+    this.pullData()
   },
 
   /**
@@ -30,17 +41,9 @@ Page({
     })
   },
 
-/**
-   * 点击注册鸡舍
-   */
-  clickRegistHenhouse: function (){
-    wx.navigateTo({
-      url: '../registHenhouse/registHenhouse',
-    })
-  },
-/**
-   * 点击cell 记录按钮
-   */
+  /**
+     * 点击cell 记录按钮
+     */
   clickCellRecord: function (e) {
     var itemData = e.currentTarget.dataset.tag;
     wx.navigateTo({
@@ -52,9 +55,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      isAdmin: app.globalData.isAdmin
+      phone:options.phone
     })
-      this.pullData(); 
+    this.pullData();
   },
 
 
@@ -65,7 +68,8 @@ Page({
     var hudTool = require("../../tool/HUDTool.js")
     var url = app.globalData.baseUrl + "henhouses?rd_session=" + app.globalData.rd_session
     var param = {
-      status: '1',
+      status: that.data.lookStatus,
+      phone:'18801044452'
     }
     var success = function (resp) {
       hudTool.cancelLoading()
@@ -78,7 +82,7 @@ Page({
         newDate.setTime(array[i].recordDate)
         // var str = newDate.toLocaleDateString()
         // var strrrr = str.replace("/", "-")
-        array[i].recordDate = that.formatTime(newDate,'Y-M-D')//strrrr.replace("/", "-")
+        array[i].recordDate = that.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
         console.log(array[i].recordDate)
       }
       that.setData({
@@ -94,30 +98,30 @@ Page({
       wx.stopPullDownRefresh() //停止下拉刷新
     }
     hudTool.showLoading('请求中')
-    network.request('GET',url, param, success, fail)
+    network.request('GET', url, param, success, fail)
   },
 
-  formatTime: function (date, format) {  
-  
-    var formateArr  = ['Y', 'M', 'D', 'h', 'm', 's'];  
-    var returnArr   = [];  
-  
-    returnArr.push(date.getFullYear());  
-    returnArr.push(this.formatNumber(date.getMonth() + 1));  
-    returnArr.push(this.formatNumber(date.getDate()));  
-  
-    returnArr.push(this.formatNumber(date.getHours()));  
-    returnArr.push(this.formatNumber(date.getMinutes()));  
-    returnArr.push(this.formatNumber(date.getSeconds()));  
-  
-    for(var i in returnArr){
+  formatTime: function (date, format) {
+
+    var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+    var returnArr = [];
+
+    returnArr.push(date.getFullYear());
+    returnArr.push(this.formatNumber(date.getMonth() + 1));
+    returnArr.push(this.formatNumber(date.getDate()));
+
+    returnArr.push(this.formatNumber(date.getHours()));
+    returnArr.push(this.formatNumber(date.getMinutes()));
+    returnArr.push(this.formatNumber(date.getSeconds()));
+
+    for (var i in returnArr) {
       format = format.replace(formateArr[i], returnArr[i]);
     }
-    return format;  
-  },  
+    return format;
+  },
 
-  formatNumber:function (n) {  
-    n = n.toString()  
+  formatNumber: function (n) {
+    n = n.toString()
     return n[1] ? n : '0' + n
   },
 
@@ -125,7 +129,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -139,14 +143,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -160,13 +164,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

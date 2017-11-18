@@ -1,10 +1,10 @@
 <!--index.wxml-->
-<view class="container">
   <view  class="userinfo">
-    <image bindtap="pushDetailPage" class="userinfo-avatar" src="../image/conver.png" background-size="cover"></image>
-    
+    <image bindtap="pushDetailPage" class="userinfo-avatar" src="{{iconUrl}}" background-size="cover"></image>
+    <label class="userinfo-nickname">{{username}}</label>
   </view>
-  <!-- <view bindtap="pushDetailPage" class="usermotto">
-    <text class="usertext">{{motto}}</text>
-  </view> -->
-</view>
+  <view class="content">
+   <block wx:for="{{listData}}">
+    <label class="content-cell">{{item.text}}</label>
+   </block>
+  </view>

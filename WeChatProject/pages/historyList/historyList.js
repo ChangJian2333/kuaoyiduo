@@ -40,7 +40,7 @@ Page({
         console.log(res.data);
         var array = res.data.resp_body
         var code = res.data.resp_head.retcode
-        if (code = 1) {
+        if (code == 1) {
 
           for (var i = 0; i < array.length; i++) {
             var startDate = new Date();

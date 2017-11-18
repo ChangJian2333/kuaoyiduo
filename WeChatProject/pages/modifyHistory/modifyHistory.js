@@ -161,7 +161,7 @@ changeRequest:function(param){
       console.log(res.data);
       var array = res.data.resp_body
       var code = res.data.resp_head.retcode
-      if (code = 1) {
+      if (code == 1) {
         wx.showToast({
           title: '修改成功',
           icon: 'success',
@@ -222,7 +222,7 @@ changeRequest:function(param){
         console.log(res.data);
         var array = res.data.resp_body
         var code = res.data.resp_head.retcode
-        if (code = 1) {
+        if (code == 1) {
           console.log(array);
           for (var i = 0; i < array.length; i++) {
             var newDate = new Date();

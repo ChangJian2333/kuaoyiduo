@@ -8,7 +8,9 @@
     "pages/historyList/historyList",
     "pages/historyDetail/historyDetail",
     "pages/modifyHistory/modifyHistory",
-    "pages/performance/performance"
+    "pages/performance/performance",
+    "pages/searchUser/searchUser",
+    "pages/userHenhouseList/userHenhouseList"
   ],
   "window": {
     "backgroundTextStyle": "light",

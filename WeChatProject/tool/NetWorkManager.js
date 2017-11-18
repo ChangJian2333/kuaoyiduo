@@ -35,7 +35,7 @@ function requestLoading(method,url, params, message, success, fail) {
       console.log(res.data);
       var array = res.data.resp_body
       var code = res.data.resp_head.retcode
-      if (code = 1) {
+      if (code == 1) {
         success(res.data)
       }else{
         fail()

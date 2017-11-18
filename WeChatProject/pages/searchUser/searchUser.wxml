@@ -1,0 +1,23 @@
+<!--首页-->
+
+<view class="wx-view_background" ></view>
+
+<!--搜索-->
+<view class="wx-view_search">
+    <label class="wx-label_search" bindtap="search" >搜索</label>
+    <input class="wx-input_search" bindblur="bindblur" placeholder="手机号" value = '{{searchTxt}}'  placeholder-style = "color: #B2A3A4;"/>  
+</view>
+
+<!--内容-->
+<view class="wx-scroll-view_content" >
+           <!-- 更多  -->
+     <view  wx:if="{{messages==null||messages.length<1}}" class="wx-view_more" >
+        <label class="wx-label_more" >暂无匹配结果</label>
+    </view> 
+    <block wx:for="{{messages}}" >
+      <view class="wx-view_cell" bindtap="pushToHenhonseList" data-tag="{{item}}">
+        <label class="wx-label_name" >{{item.firstName}}</label>
+        <label class="wx-label_phoneNumber">{{item.phone}}</label>
+      </view> 
+    </block>
+</view>

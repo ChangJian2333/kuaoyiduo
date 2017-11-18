@@ -1,0 +1,272 @@
+/**首页样式**/
+page{
+  width: 100%;
+  height: 100%;
+   background-color: rgb(254,104, 106); 
+}
+/* 自定义样式 */
+.wx-view_background{
+       width: 100%; height: 100%; 
+       background-color: rgb(254,104, 106); 
+       position: relative; 
+}
+
+ /*搜索 */
+.wx-view_search{
+        min-height: 0px; height: 35px; 
+        margin: 10px 15px auto; left: 0px; right: 0px; 
+        top: 0px; bottom: 0px; position: absolute; 
+        display: inline-block; border-radius: 3px;
+        
+        }
+.wx-label_search{
+           margin: auto 0px auto auto; left: 0px;
+           right: 0px; top: 0px; bottom: 0px; 
+           position: absolute; min-height: 0px;
+           height: 35px; line-height: 35px;
+            width: 82px; border-radius: 2px; 
+           
+            font-size: 18px; text-align: center; 
+            color: rgb(255, 255, 255); 
+             background: linear-gradient(rgb(253, 86, 103), rgb(250, 145, 130)); 
+            }
+.wx-input_search{
+          margin: auto 82px auto 0px; 
+          left: 0px; right: 0px; top: 0px;
+           bottom: 0px; position: absolute; 
+           display: inline-block; height: 35px; 
+            border-radius: 3px 0px 0px 3px;
+           background-color:rgba(255,255,255,1); 
+            padding-left: 10px;font-size:  16px;
+    }
+
+
+/*内容*/
+.wx-scroll-view_content{
+           margin-top: 61px; margin-bottom: auto; 
+           left: 0px; right: 0px; top: 0px; 
+           bottom: 0px; position: absolute; 
+           display: inline-block; height: 90%; 
+           border-color: rgba(85, 28, 28, 0); 
+        
+}
+/*cell内容*/
+.wx-view_cell{
+             margin-top: 10px;
+             background-color:rgb(255, 255, 255); 
+             margin-left: 10px; 
+             margin-right: 10px; 
+             height: 30px; 
+             border-radius: 3px;
+             position: relative; 
+            
+}
+
+/*名字*/
+.wx-label_name{
+               height: 30px; 
+               margin-top: 0px; 
+               margin-left: 0px;
+               width: 50%;
+                display: inline-block;  
+               font-size: 14px; 
+               text-align: center; 
+               color: rgba(247,103,82,1);
+               justify-content: center;
+ }
+ /*电话*/
+.wx-label_phoneNumber{ 
+                height: 30px; 
+                margin-left: 0px; 
+                margin-right: 0px; 
+                margin-top: 0px;
+                margin-bottom: 0px;
+                 display: inline-block;  
+                text-align: center; 
+                font-size: 14px;
+                color: rgba(247,103,82,1);
+                padding: 2px;
+                justify-content: center; 
+  }
+
+
+
+/*底部视图*/
+.wx-view_bottom{
+           width: 100%; height: 40px;
+            margin-top: auto; margin-bottom: 0px; 
+            left: 0px; right: 0px; top: 0px;
+             bottom: 0px; position: absolute; 
+             /*display: inline-block; min-height: 0px;*/
+ }
+  /*横分割线*/
+ .wx-view_segmentationX{
+            height: 0.5px;  width: 100%; 
+            background-color: rgba(229,229,229,0.8); 
+}
+/*竖向分割线*/
+.wx-view_segmentationY{
+            height: 24px; width: 0.5px;
+            margin: auto; left:50%; right:auto; 
+            top: 0px; bottom: 0px; 
+            position: absolute;
+             /*display: inline-block; */
+            background-color: rgba(229,229,229,0.8); 
+}
+
+/*联系方式*/
+.wx-label_contact{
+        min-height: 0px; height: 40px;
+        margin: auto 0px 0px auto; left: 0px; 
+        right: 50%; top: 0px; bottom: 0px;
+         position: absolute; display: 
+         inline-block; width: 49%; font-size: 13px; 
+         text-align: center; 
+         line-height: 47px;
+         color: rgba(247,103,82,1);
+        
+}
+/*收藏*/
+.wx-label_collection{
+       min-height: 0px; height: 40px;
+        margin: auto 0px 0px auto; left: 0px; 
+        right: 0px; top: 0px; bottom: 0px;
+         position: absolute; display: 
+         inline-block; width: 49%; font-size: 13px; 
+         text-align: center; 
+         line-height: 47px;
+         color: rgba(247,103,82,1);
+         /*background-color: rgba(70,26,26,1); */
+  }
+  
+  .wx-label_collections{
+       min-height: 0px; height: 40px;
+        margin: auto 0px 0px auto; left: 0px; 
+        right: 0px; top: 0px; bottom: 0px;
+         position: absolute; display: 
+         inline-block; width: 49%; font-size: 13px; 
+         text-align: center; 
+         line-height: 47px;
+         color: rgba(178,163,164,1);
+ }
+
+/*弹窗*/
+/* 联系方式 */
+
+.wx-view_Tbackground{
+       position:fixed;
+       z-index: 100000;
+       width: 100%;  height: 100%; 
+       margin : 0px 0px 0px 0px;
+       background-color: rgba(0, 0, 0, 0.5);   
+ }
+.wx-view_bounced{
+         background-color: rgba(255, 255, 255, 0.96);
+         margin: 40% auto auto; left: 0px; right: 0px; top: 0px;
+          bottom: 0px; position: absolute; display: inline-block; 
+          min-height: 0px; height: 208px; width: 270px; 
+          border-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; 
+          border-top-left-radius: 10px; 
+  }
+.wx-label_title{
+              width: 101px; height: 22px; min-height: 0px; 
+              margin: 30px auto auto; font-size: 16px; text-align: 
+              center; left: 0px; right: 0px; top: 0px; bottom: 0px; 
+              position: absolute; display: inline-block; margin-top: 30px; 
+}
+.wx-image_iconA{
+                 width: 30px; height: 30px; margin-top: 62px; margin-bottom: 
+                 auto; left: 0px; right: 0px; top: 0px; bottom: 0px; 
+                 position: absolute; display: inline-block; margin-left: 60px; 
+  }
+.wx-label_contactA{
+                 margin-top: 68px; margin-bottom: auto; left: 0px; right: 0px; 
+                 top: 0px; bottom: 0px; position: absolute; 
+                 display: inline-block; height: 24px; min-height: 0px; 
+                 margin-left: 100px; text-align: left; font-size: 17px; 
+                 color: rgb(51,51, 51);
+}
+.wx-image_iconB{
+                   width: 30px; height: 30px; margin-top: 102px; margin-bottom: 
+                   auto; left: 0px; right: 0px; top: 0px; bottom: 0px; 
+                   position:absolute; display: inline-block; margin-left: 60px; 
+}
+.wx-label_contactB{  
+                   margin-top: 106px; margin-bottom: auto; left: 0px; right: 0px;
+                    top: 0px; bottom: 0px; position: absolute; 
+                    display: inline-block; min-height: 0px; height: 24px; 
+                    margin-left: 100px; font-size: 17px; text-align: left; 
+                    color: rgb(51,51, 51);
+}
+
+
+/* 提示 */
+.wx-view_prompt{
+         height: 325px; margin: auto 25px; 
+         left: 0px; right: 0px; top: 0px;
+          bottom: 0px; position: absolute; 
+          display: inline-block; 
+          background-color: rgb(252, 45, 66); 
+          text-align: center; border-radius: 5px;
+  }
+.wx-image_prompt{
+        width: 71px; height: 82px; margin-top: 63px; 
+        margin-bottom: auto; left: 0px; right: 0px; 
+        top: 0px; bottom: 0px; position: absolute;
+         display: inline-block; margin-left: auto; margin-right: auto; 
+}
+.wx-label_promptA{
+           margin-top: auto; margin-bottom: 0px; left: 0px; right: 0px;
+            top: 0px; bottom: 0px; position: absolute; 
+            display: inline-block; height: 55px; 
+            background-color: rgb(249,125, 102); font-size: 18px;
+             color: rgb(255, 255, 255); line-height: 55px;
+}
+
+.wx-label_promptB{
+            margin: auto auto 118px; left: 0px; right: 0px; 
+            top: 0px; bottom: 0px; position: absolute;
+             display: inline-block; height: 18px; min-height: 0px;
+              width: 260px;color: rgb(255, 255, 255); 
+        
+
+  
+}
+
+
+
+/*更多*/
+.wx-view_more{
+            margin-top: auto; 
+             margin-bottom: auto; 
+            margin:  80px auto auto; 
+            left: 0; right: 0; top: 0; 
+             bottom: 0;
+             vertical-align: middle;
+              position: absolute;
+             display: inline-block; 
+             width:  230px; height:  230px; 
+          }
+ .wx-label_more{
+          width:  195px; height:  40px; min-height:  0px;
+          margin:  80px auto auto; left:  0px; right:  0px; top:  0px;
+           bottom:  0px; position:  absolute; display:  inline-block; 
+           font-size:  18px; color:  rgb(255, 255, 255); text-align:  
+           center; margin-top: 80px;line-height: 40px;
+ }
+.wx-button_more{
+           width:  194px; height:  40px; min-height:  0px; margin:  auto auto 38px; 
+           left:  0px; right:  0px; top:  0px; bottom:  0px;
+            position:  absolute; display:  inline-block; text-align: 
+             center; font-size:  16px; color:  rgb(255, 255, 255); 
+             border-radius:  50px; background-color:  rgba(255, 255,255, 0.3); 
+             margin-bottom: 38px; line-height: 40px;
+}
+ .wx-label_look{
+             margin-top:  auto; margin-bottom:  0px;
+              left:  0px; right:  0px; top:  0px; 
+              bottom:  0px; position:  absolute; display: 
+               inline-block; width:  100%; min-height:  0px; 
+               height:  38px; font-size:  13px; text-align: center;
+               line-height: 38px;color: rgba(247,103,82,1);
+  }

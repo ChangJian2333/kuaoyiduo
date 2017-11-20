@@ -43,23 +43,23 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  height: 40px;
+  height: 35px;
   align-items: center;
-  font-size: 17px;
+  font-size: 16px;
 }
 .td {
-    width:40%;
+    width:25%;
     justify-content: center;
     text-align: center;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 .td-link {
-    width:40%;
+    width:25%;
     justify-content: center;
     text-align: center;
     color: #09bb07;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 .bg-w{
@@ -69,11 +69,11 @@
   background: #E6F3F9;
 }
 .th {
-  width: 40%;
+  width: 25%;
   justify-content: center;
   background: #09bb07;
   color: #fff;
   display: flex;
-  height: 40px;
+  height: 35px;
   align-items: center;
 }

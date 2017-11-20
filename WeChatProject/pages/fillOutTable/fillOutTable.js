@@ -47,6 +47,8 @@ Page({
     remark:'',
     // 1记录中 0结束记录
     status: '1',
+    //是否正在提交
+    isCommit:false,
   },
 
   /**
@@ -172,6 +174,10 @@ Page({
    * 点击保存按钮
    */
   clickSaveTable:function (){
+    if (isCommit == true){
+      return;
+    }
+    isCommit = true;
     var that = this;
     var status = this.checkParam()
     if (status){

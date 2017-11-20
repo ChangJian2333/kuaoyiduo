@@ -35,13 +35,11 @@
 .henhoust_Number {
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 53px;
+  margin-top: 10px;
   font-size: 17px;
 }
 
 .scrollClass {
-  margin-left: 0px;
-  margin-right: 0px;
   margin-top: 8px;
   margin-bottom: 20px;
   display: flex;
@@ -50,26 +48,29 @@
   margin-left: 10px;
   margin-top: 0px;
   width: 100px;
+
 }
 
 .tr {
   display: inline-block;
   width: 100px;
+  height: 35px;
 }
 .td {
     width:100%;
     justify-content: center;
     text-align: center;
-    font-size: 17px;
-    height: 30px;
+    font-size: 14px;
+    height: 35px;
 }
 
-.td-link {
+.td-title {
     width:100%;
     justify-content: center;
     text-align: center;
     color: #09bb07;
-    font-size: 17px;
+    font-size: 16px;
+    height: 35px;
 }
 
 .bg-w{

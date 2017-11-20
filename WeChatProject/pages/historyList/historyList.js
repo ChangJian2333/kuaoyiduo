@@ -15,13 +15,22 @@ Page({
    * 点击cell
    */
   clickCellRecord:function(e){
-    var item = this.data.listData[e.currentTarget.dataset.tag]
+    var item = e.currentTarget.dataset.tag;
     wx.navigateTo({
       url: '../historyDetail/historyDetail?status=0&historyId=' + item.id + '&henName=' + item.henName,
     })
     console.log(e.currentTarget.dataset.tag)
   },
-
+  /**
+   * 点击cell
+   */
+  clickCellChange: function (e) {
+    var itemData = e.currentTarget.dataset.tag;
+    wx.navigateTo({
+      url: '../modifyHistory/modifyHistory?historyId=' + itemData.id + '&henName=' + itemData.henName,
+    })
+  },
+  
   pullData() {
     var that = this;
     console.log("网络请求");

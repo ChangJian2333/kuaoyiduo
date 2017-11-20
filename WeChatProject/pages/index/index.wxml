@@ -1,10 +1,12 @@
 <!--index.wxml-->
   <view  class="userinfo">
-    <image bindtap="pushDetailPage" class="userinfo-avatar" src="{{iconUrl}}" background-size="cover"></image>
-    <label class="userinfo-nickname">{{username}}</label>
+    <image bindtap="pushDetailPage" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <label class="userinfo-nickname">{{userInfo.nickName}}</label>
   </view>
   <view class="content">
    <block wx:for="{{listData}}">
-    <label class="content-cell">{{item.text}}</label>
+     <view class="content-cell"> 
+      <button class="content-cellText" bindtap='buttonClick' data-tag="{{index}}">{{item.text}}</button>
+     </view> 
    </block>
   </view>

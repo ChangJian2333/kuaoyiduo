@@ -13,6 +13,8 @@ Page({
     henName:'',
     historyId:null,
     scrollviewWid: 100,
+    pageIndex: 1,
+    isHideLoadMore: true,
   },
   
   /**
@@ -220,6 +222,7 @@ changeRequest:function(param){
       },
       success: function (res) {
         console.log(res.data);
+        var page = that.data.pageIndex
         var array = res.data.resp_body
         var code = res.data.resp_head.retcode
         if (code == 1) {
@@ -233,13 +236,30 @@ changeRequest:function(param){
           that.setData({
             listData: array,
           })
+        } else {
+          console.log('请求失败了');
+          if (page > 1) {
+            page = page - 1
+          }
         }
+        that.setData({
+          pageIndex: page,
+          isHideLoadMore: true,
+        })
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
       },
       fail: function (res) {
         console.log("失败");
         console.log(res);
+        var page = that.data.pageIndex
+        if (page > 1) {
+          page = page - 1
+        }
+        that.setData({
+          pageIndex: page,
+          isHideLoadMore: true,
+        })
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
       },
@@ -302,14 +322,25 @@ changeRequest:function(param){
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.setData({
+      pageIndex: 1,
+    })
+    this.pullData()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.data.isHideLoadMore == false) { // 正在进行上拉操作
+      return;
+    }
+    var page = this.data.pageIndex + 1
+    this.setData({
+      pageIndex: page,
+      isHideLoadMore: false,
+    })
+    this.pullData()
   },
 
   /**

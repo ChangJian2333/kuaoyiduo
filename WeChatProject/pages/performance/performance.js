@@ -1,4 +1,5 @@
 // performance.js
+var app = getApp()
 Page({
 
   /**
@@ -37,7 +38,84 @@ Page({
       {},
     ],
     scrollviewWid:null,
+    henNumber:null,
+    pageIndex:1,
+    isHideLoadMore:true,
   },
+
+  pullData() {
+    var that = this;
+    console.log("网络请求");
+    console.log(that.data.page);
+    wx.request({
+      url: app.globalData.baseUrl + "getAllPropertyList?rd_session=" + app.globalData.rd_session,
+      method: 'GET',
+      data: {
+        page: that.data.pageIndex,
+        henno: '19'//that.henNumber
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var page = that.data.pageIndex
+        console.log(res.data);
+        var array = res.data.resp_body
+        var code = res.data.resp_head.retcode
+        console.log(res)
+        if (code == 1) {
+
+          // for (var i = 0; i < array.length; i++) {
+          //   var startDate = new Date();
+          //   var recordDate = new Date();
+          //   startDate.setTime(array[i].startDate)
+          //   recordDate.setTime(array[i].recordDate)
+          //   array[i].startDate = startDate.toLocaleDateString()
+          //   array[i].recordDate = recordDate.toLocaleDateString()
+          //   console.log(array[i].startDate)
+          //   console.log(array[i].recordDate)
+          // }
+          console.log(array)
+          var dataSource = that.data.listData
+          if (that.pageIndex > 1){
+              dataSource.concat(array)
+          }else{
+            dataSource = array
+          }
+          console.log(dataSource)
+          that.setData({
+            listData: dataSource,
+          })
+        } else {
+          console.log('请求失败了');
+          if (page > 1) {
+            page = page - 1
+          }
+        }
+        that.setData({
+          pageIndex: page,
+          isHideLoadMore: true,
+        })
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      },
+      fail: function (res) {
+        console.log("失败");
+        console.log(res);
+        var page = that.data.pageIndex
+        if (page > 1) {
+          page = page - 1
+        }
+        that.setData({
+          pageIndex: page,
+          isHideLoadMore: true,
+        })
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      },
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -51,9 +129,11 @@ Page({
           historyId: options.historyId,
           henName: options.henName,
           scrollviewWid: windowWidth - 20,
+          henNumber: options.henNumber,
         });
       },
     })
+    this.pullData()
   },
 
   /**
@@ -88,14 +168,24 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.setData({
+      pageIndex: 1,
+    })
+    this.pullData()
   },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.data.isHideLoadMore == false){ // 正在进行上拉操作
+      return;
+    }
+    var page = this.data.pageIndex + 1
+    this.setData({
+      pageIndex: page,
+      isHideLoadMore:false,
+    })
+    this.pullData()
   },
 
   /**

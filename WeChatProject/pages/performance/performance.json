@@ -1,1 +1,4 @@
-{}
+{
+  "navigationBarTitleText": "生产性能",
+  "enablePullDownRefresh": true
+}

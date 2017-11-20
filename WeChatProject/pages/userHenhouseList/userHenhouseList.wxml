@@ -1,11 +1,11 @@
 <!--userHenhouseList.wxml-->
 <!-- detail.wxml -->
 <view class="content">
-  <view class="header">
+  <!-- <view class="header">
     <view class="header-title">
       <text>快易多蛋鸡养殖记录</text>
     </view>
-  </view>  
+  </view>   -->
   <view class="regist-title">
       <view class="regist-title-left" bindtap="clickOnlineHenhouse">查看记录中</view>
       <view class="regist-title-right" bindtap="clickEndHenhouse">查看已淘汰</view>

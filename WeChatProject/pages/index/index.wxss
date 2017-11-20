@@ -10,6 +10,7 @@
   width: 90px;
   height: 90px;
   margin: 10px;
+  background-color: #dcdcdc;
   border-radius: 50%;
 }
 
@@ -18,16 +19,29 @@
 }
 .content{
   display: flex;
-  flex-direction: column; 
-  align-items: center;  
-  margin-left: 10px;
-  margin-right: 10px;
+  flex-direction: column;  
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.content-cell{
-width: 100%;
-height: 50px;
-font-size: 17px;
-background: #E6F3F9;
+
+ .content-cell{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 20px;
+  height: 40px;
+  vertical-align: middle;
+} 
+
+.content-cellText{
+  font-size: 17px;
+  text-align: center;
+  display: block; 
+  color: #09bb07;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #09bb07;
+  background-color: #ffffff;
 }

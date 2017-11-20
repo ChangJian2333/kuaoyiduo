@@ -7,7 +7,9 @@ Page({
    */
   data: {
     listData: [
-      
+      { 'henName': '一号鸡舍', 'recordDate': '2017-05-09' },
+      { 'henName': '一号鸡舍', 'recordDate': '2017-05-09' },
+      { 'henName': '一号鸡舍', 'recordDate': '2017-05-09' },
     ],
     isAdmin:false,
   },
@@ -16,17 +18,18 @@ Page({
    */
   clickEndRegistHenhouse: function(){
     wx.navigateTo({
-      // url: '../historyList/historyList',
-      url: '../searchUser/searchUser',
+      url: '../historyList/historyList',
+      // url: '../searchUser/searchUser',
     })
   },
 
   /**
    * 点击查看鸡舍详情
    */
-  pushToPerformance: function () {
+  pushToPerformance: function (e) {
+    var itemData = e.currentTarget.dataset.tag;
     wx.navigateTo({
-      url: '../performance/performance',
+      url: '../performance/performance?henNumber=' + itemData.id,
     })
   },
 
@@ -47,6 +50,16 @@ Page({
       url: '../fillOutTable/fillOutTable?henName=' + itemData.henName + '&henhouseTime=' + itemData.recordDate + '&days=' + itemData.startAge + '&historyId=' + itemData.id + '&liveNumber=' + itemData.numbers,
     })
   },
+  /**
+   * 点击cell 修改按钮
+   */
+  clickCellChange: function (e) {
+    var itemData = e.currentTarget.dataset.tag;
+    wx.navigateTo({
+      url: '../modifyHistory/modifyHistory?historyId=' + itemData.id + '&henName=' + itemData.henName,
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -72,18 +85,22 @@ Page({
       var array = resp.resp_body
       console.log(resp)
       console.log(array)
-      console.log('请求成功')
-      for (var i = 0; i < array.length; i++) {
-        var newDate = new Date();
-        newDate.setTime(array[i].recordDate)
-        // var str = newDate.toLocaleDateString()
-        // var strrrr = str.replace("/", "-")
-        array[i].recordDate = that.formatTime(newDate,'Y-M-D')//strrrr.replace("/", "-")
-        console.log(array[i].recordDate)
+      var code = resp.resp_head.retcode
+      if (code == 1) {
+        console.log('请求成功')
+        for (var i = 0; i < array.length; i++) {
+          var newDate = new Date();
+          newDate.setTime(array[i].recordDate)
+          // var str = newDate.toLocaleDateString()
+          // var strrrr = str.replace("/", "-")
+          array[i].recordDate = that.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
+          console.log(array[i].recordDate)
+        }
+        that.setData({
+          listData: array,
+        })
       }
-      that.setData({
-        listData: array,
-      })
+      
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }

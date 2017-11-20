@@ -174,10 +174,10 @@ Page({
    * 点击保存按钮
    */
   clickSaveTable:function (){
-    if (isCommit == true){
+    if (this.data.isCommit == true){
       return;
     }
-    isCommit = true;
+    
     var that = this;
     var status = this.checkParam()
     if (status){
@@ -208,10 +208,11 @@ Page({
       }else{
         this.saveRequest();
       }
-    } 
+    }
   },
 
   saveRequest() {
+    this.data.isCommit = true;
     var that = this;
     var hudTool = require("../../tool/HUDTool.js")
     console.log("网络请求");
@@ -229,6 +230,7 @@ Page({
       pay: that.data.pay,
       earn: that.data.earn,
       remark: that.data.remark,
+      dayNumber: that.data.liveNumber - that.data.dieNumber,
       // rd_session: app.globalData.rd_session,
     };
     console.log(param);
@@ -253,7 +255,7 @@ Page({
               if (res.confirm) {
                 console.log('用户点击确定');
                 wx.navigateTo({
-                  url: '../historyDetail/historyDetail?status=1' + '&historyId=' + that.data.historyId + '&henName=' + that.data.henName,
+                  url: '../performance/performance?henNumber=' + that.data.historyId,
                 })
               } else { //返回上级页面
                 wx.navigateBack({
@@ -262,9 +264,12 @@ Page({
               }
             }
           })
+        }else{
+          that.data.isCommit = false;
         }
       },
       fail: function (res) {
+        that.data.isCommit = false;
         hudTool.cancelLoading()
         console.log("失败");
         console.log(res);

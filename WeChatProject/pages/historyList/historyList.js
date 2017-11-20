@@ -17,7 +17,7 @@ Page({
   clickCellRecord:function(e){
     var item = e.currentTarget.dataset.tag;
     wx.navigateTo({
-      url: '../historyDetail/historyDetail?status=0&historyId=' + item.id + '&henName=' + item.henName,
+      url: '../performance/performance?henNumber=' + item.id,
     })
     console.log(e.currentTarget.dataset.tag)
   },

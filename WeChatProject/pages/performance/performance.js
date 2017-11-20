@@ -17,9 +17,9 @@ Page({
     titleList: [
       { 'text':'日期'},
       { 'text':'日龄'},
-      { 'text':'料蛋比'},
-      { 'text':'产蛋量'},
-      { 'text':'喂料量'},
+      { 'text':'料蛋比（10天）'},
+      { 'text':'产蛋量（10天）'},
+      { 'text':'喂料量（10天）'},
       { 'text':'150天后累计料蛋'},
       { 'text':'蛋重(g)'},
       { 'text':'当天产蛋率'},
@@ -37,6 +37,7 @@ Page({
       {},
       {},
     ],
+    sumDic:{},
     scrollviewWid:null,
     henNumber:null,
     pageIndex:1,
@@ -52,7 +53,7 @@ Page({
       method: 'GET',
       data: {
         page: that.data.pageIndex,
-        henno: '19'//that.henNumber
+        henno: that.data.henNumber
       },
       header: {
         'content-type': 'application/json'
@@ -65,22 +66,15 @@ Page({
         console.log(res)
         if (code == 1) {
 
-          // for (var i = 0; i < array.length; i++) {
-          //   var startDate = new Date();
-          //   var recordDate = new Date();
-          //   startDate.setTime(array[i].startDate)
-          //   recordDate.setTime(array[i].recordDate)
-          //   array[i].startDate = startDate.toLocaleDateString()
-          //   array[i].recordDate = recordDate.toLocaleDateString()
-          //   console.log(array[i].startDate)
-          //   console.log(array[i].recordDate)
-          // }
           console.log(array)
           var dataSource = that.data.listData
           if (that.pageIndex > 1){
               dataSource.concat(array)
           }else{
             dataSource = array
+            that.setData({
+              sumDic: res.data.houseDTO,
+            })
           }
           console.log(dataSource)
           that.setData({

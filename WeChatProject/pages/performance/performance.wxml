@@ -15,17 +15,17 @@
       </view>
       <view class="line-tr">
         <!-- 入舍只数 -->
-        <view class="line-td bg-g">1</view>
+        <view class="line-td bg-g">{{sumDic.hennumber}}</view>
         <!-- 现存只数 -->
-        <view class="line-td bg-g">2</view>
+        <view class="line-td bg-g">{{sumDic.numbers}}</view>
         <!-- 累计喂料量 -->
-        <view class="line-td bg-g">3</view>
+        <view class="line-td bg-g">{{sumDic.totalforageWeight}}</view>
         <!-- 累计产蛋量 -->
-        <view class="line-td bg-g">4</view>
+        <view class="line-td bg-g">{{sumDic.totaleggWeight}}</view>
         <!-- 累计支出 -->
-        <view class="line-td bg-g">5</view>
+        <view class="line-td bg-g">{{sumDic.totalpay}}</view>
         <!-- 累计收入 -->
-        <view class="line-td bg-g">6</view>
+        <view class="line-td bg-g">{{sumDic.totalearn}}</view>
       </view>
       <view class="line-tr">
         <block wx:for="{{titleList}}">
@@ -63,8 +63,8 @@
 <!-- 喂料量       -->
       <view class="tr"> 
         <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.sumefor}}</view>
-          <view class="td" wx:else>{{item.sumefor}}</view>
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.sumfor}}</view>
+          <view class="td" wx:else>{{item.sumfor}}</view>
         </block>
       </view>
 <!-- 150天后累计料蛋比       -->

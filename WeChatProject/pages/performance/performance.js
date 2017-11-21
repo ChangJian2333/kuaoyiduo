@@ -42,6 +42,7 @@ Page({
     henNumber:null,
     pageIndex:1,
     isHideLoadMore:true,
+    status:null,
   },
 
   pullData() {
@@ -124,6 +125,7 @@ Page({
           henName: options.henName,
           scrollviewWid: windowWidth - 20,
           henNumber: options.henNumber,
+          status: options.status,
         });
       },
     })
@@ -155,7 +157,11 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    if (this.data.status == 1) {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
   },
 
   /**

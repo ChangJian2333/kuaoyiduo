@@ -255,7 +255,7 @@ Page({
               if (res.confirm) {
                 console.log('用户点击确定');
                 wx.navigateTo({
-                  url: '../performance/performance?henNumber=' + that.data.historyId,
+                  url: '../performance/performance?henNumber=' + that.data.historyId +'&status=1',
                 })
               } else { //返回上级页面
                 wx.navigateBack({

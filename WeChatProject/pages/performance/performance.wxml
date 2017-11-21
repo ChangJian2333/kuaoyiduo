@@ -22,10 +22,11 @@
         <view class="line-td bg-g">{{sumDic.totalforageWeight}}</view>
         <!-- 累计产蛋量 -->
         <view class="line-td bg-g">{{sumDic.totaleggWeight}}</view>
-        <!-- 累计支出 -->
-        <view class="line-td bg-g">{{sumDic.totalpay}}</view>
         <!-- 累计收入 -->
         <view class="line-td bg-g">{{sumDic.totalearn}}</view>
+        <!-- 累计支出 -->
+        <view class="line-td bg-g">{{sumDic.totalpay}}</view>
+        
       </view>
       <view class="line-tr" style=''>
           <text class="line-td bg-w">日期</text>

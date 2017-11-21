@@ -171,9 +171,9 @@ Page({
         hudTool.cancelLoading()
         console.log(res.data);
         var code = res.data.resp_head.retcode
-        if (code == 1) {
-          wx.navigateBack({ //保存成功返回上级页面
-            delta: 1
+        if (code == 1) { // 进入查看记录页面
+          wx.navigateTo({
+            url: '../detail/detail?status=1'
           })
         } else {
           console.log('请求失败了');

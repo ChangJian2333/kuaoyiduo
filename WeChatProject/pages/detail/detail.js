@@ -12,6 +12,7 @@ Page({
       { 'henName': '一号鸡舍', 'recordDate': '2017-05-09' },
     ],
     isAdmin:false,
+    status:null,
   },
 /**
    * 点击查看已淘汰批次
@@ -65,7 +66,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      isAdmin: app.globalData.isAdmin
+      isAdmin: app.globalData.isAdmin,
+      status: options.status,
+
     })
       this.pullData(); 
   },
@@ -163,7 +166,11 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    if (this.data.status == 1) {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
   },
 
   /**

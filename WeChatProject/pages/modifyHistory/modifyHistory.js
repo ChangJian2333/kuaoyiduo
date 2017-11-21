@@ -13,8 +13,10 @@ Page({
     henName:'',
     historyId:null,
     scrollviewWid: 100,
-    pageIndex: 1,
+    pageIndex: 0,
     isHideLoadMore: true,
+    totalpage: 1,
+
   },
   
   /**
@@ -211,7 +213,8 @@ changeRequest:function(param){
     console.log("网络请求");
     console.log(that.data.page);
     var param = {
-      henNo: that.data.historyId
+      henNo: that.data.historyId,
+      page:that.data.pageIndex,
     }
     wx.request({
       url: app.globalData.baseUrl + "getHenrecordList?rd_session=" + app.globalData.rd_session,
@@ -225,7 +228,9 @@ changeRequest:function(param){
         var page = that.data.pageIndex
         var array = res.data.resp_body
         var code = res.data.resp_head.retcode
+
         if (code == 1) {
+          that.data.totalpage = res.data.totalpage;
           console.log(array);
           for (var i = 0; i < array.length; i++) {
             var newDate = new Date();
@@ -233,12 +238,19 @@ changeRequest:function(param){
             array[i].recordDate = that.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
             console.log(array[i].recordDate)
           }
-          that.setData({
-            listData: array,
-          })
+          var dataSource = that.data.listData
+          if (that.data.pageIndex > 0) {
+            dataSource = dataSource.concat(array)
+          }else{
+            dataSource = array
+          }
+         that.setData({
+           listData: dataSource,
+         })
+        
         } else {
           console.log('请求失败了');
-          if (page > 1) {
+          if (page > 0) {
             page = page - 1
           }
         }
@@ -253,7 +265,7 @@ changeRequest:function(param){
         console.log("失败");
         console.log(res);
         var page = that.data.pageIndex
-        if (page > 1) {
+        if (page > 0) {
           page = page - 1
         }
         that.setData({
@@ -323,7 +335,7 @@ changeRequest:function(param){
    */
   onPullDownRefresh: function () {
     this.setData({
-      pageIndex: 1,
+      pageIndex: 0,
     })
     this.pullData()
   },
@@ -336,6 +348,9 @@ changeRequest:function(param){
       return;
     }
     var page = this.data.pageIndex + 1
+    if (page >= this.data.totalpage){ // 超出最大页数
+      return;
+    }
     this.setData({
       pageIndex: page,
       isHideLoadMore: false,

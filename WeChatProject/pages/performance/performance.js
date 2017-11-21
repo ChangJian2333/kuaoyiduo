@@ -43,6 +43,7 @@ Page({
     pageIndex:1,
     isHideLoadMore:true,
     status:null,
+    totalpage:1,
   },
 
   pullData() {
@@ -66,11 +67,11 @@ Page({
         var code = res.data.resp_head.retcode
         console.log(res)
         if (code == 1) {
-
+          that.data.totalpage = res.data.totalpage;
           console.log(array)
           var dataSource = that.data.listData
-          if (that.pageIndex > 1){
-              dataSource.concat(array)
+          if (that.data.pageIndex > 1){
+              dataSource = dataSource.concat(array)
           }else{
             dataSource = array
             that.setData({
@@ -181,6 +182,9 @@ Page({
       return;
     }
     var page = this.data.pageIndex + 1
+    if (page > this.data.totalpage){ // 超出总页数
+      return;
+    }
     this.setData({
       pageIndex: page,
       isHideLoadMore:false,

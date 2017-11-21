@@ -6,7 +6,6 @@ Page({
     motto: '进入快易多养殖',
     iconUrl:null,
     username:null,
-    isAdmin: false,
     listData:[
       { 'icon': '../image/zhuce.png', 'text': '注册新养殖' },
       { 'icon': '../image/jilu.png', 'text': '查看记录中' },
@@ -26,7 +25,7 @@ Page({
       pathUrl = '../historyList/historyList'
     } else if (index == 3) { // 搜索
       pathUrl = '../searchUser/searchUser'
-      if (this.data.isAdmin == true) { // false
+      if (app.globalData.isAdmin == false) { // false
         wx.showModal({
           content: '您暂时没有内部鸡舍！',
           showCancel: false,
@@ -64,7 +63,6 @@ Page({
     that.setData({
       iconUrl: app.globalData.avatarUrl,
       username: app.globalData.nickName,
-      isAdmin: app.globalData.isAdmin,
     })
   }
 })

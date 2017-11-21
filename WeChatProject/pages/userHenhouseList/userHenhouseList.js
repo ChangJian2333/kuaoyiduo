@@ -35,9 +35,10 @@ Page({
   /**
    * 点击查看鸡舍详情
    */
-  pushToPerformance: function () {
+  pushToPerformance: function (e) {
+    var itemData = e.currentTarget.dataset.tag;
     wx.navigateTo({
-      url: '../performance/performance',
+      url: '../performance/performance?henNumber=' + itemData.id,
     })
   },
 
@@ -69,7 +70,7 @@ Page({
     var url = app.globalData.baseUrl + "henhouses?rd_session=" + app.globalData.rd_session
     var param = {
       status: that.data.lookStatus,
-      phone:'18801044452'
+      phone: that.data.phone,
     }
     var success = function (resp) {
       hudTool.cancelLoading()

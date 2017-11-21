@@ -49,6 +49,7 @@
     justify-content: center;
     text-align: left;
     font-size: 14px;
+    line-height: 35px;
 }
 
 .td-link {

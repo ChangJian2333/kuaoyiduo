@@ -70,7 +70,7 @@
     text-align: center;
     color: #09bb07;
     font-size: 16px;
-    height: 35px;
+    line-height: 35px;
 }
 
 .bg-w{

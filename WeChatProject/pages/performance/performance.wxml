@@ -28,9 +28,18 @@
         <view class="line-td bg-g">{{sumDic.totalearn}}</view>
       </view>
       <view class="line-tr">
-        <block wx:for="{{titleList}}">
-          <view class="line-td bg-w" style=" word-break: break-all">{{item.text}}</view>
-        </block>
+          <view class="line-td bg-w">日期</view>
+          <view class="line-td bg-w">日龄</view>
+          <view class='line-sumtd'>
+            <view class="line-sumtd-top bg-w">近10天累计</view>
+            <view class="line-sumtd-bottom bg-w">料蛋比</view>
+            <view class="line-sumtd-bottom bg-w">产蛋量</view>
+            <view class="line-sumtd-bottom bg-w">喂料量</view>
+          </view>
+          <text class="line-td bg-w" >150天后\n累计料蛋</text>
+          <view class="line-td bg-w">蛋重(g)</view>
+          <view class="line-td bg-w">当天产蛋率</view>
+          <view class="line-td bg-w">备注</view>
       </view>
 <!-- 日期 -->
       <view class="tr">  

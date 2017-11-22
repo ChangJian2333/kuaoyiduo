@@ -40,21 +40,19 @@
 }
 
 .scrollClass {
-  margin-left: 10px;
-  margin-right: 10px;
   margin-top: 8px;
-  margin-bottom: 20px;
-  /* display: flex; */
+  display: flex;
 }
 .leftTime {
   margin-left: 10px;
   margin-top: 0px;
   width: 100px;
+  white-space: nowrap;
 }
 
 .line-tr {
   display: flex;
-  width: 900px;
+  width: 1100px;
   font-size: 16px;
   height: 50px;
 }
@@ -63,6 +61,12 @@
     text-align: center;
     font-size: 16px;
     line-height: 50px;
+}
+.line-remork{
+  width:400px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 50px;
 }
 
 .line-td-br {
@@ -96,19 +100,32 @@
   display: inline-block;
   width: 100px;
   height: 35px;
-  font-size: 14px;
+  justify-content: center;
+}
+.tr-remork{
+  display: inline-block;
+  width: 400px;
+  height: 35px;
   justify-content: center;
 }
 .td {
     width:100px;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     height: 35px;
     line-height: 35px;
     overflow: scroll;
-  white-space: nowrap;
+    white-space: nowrap;
 }
-
+.td-remork {
+    width:400px;
+    text-align: center;
+    font-size: 16px;
+    height: 35px;
+    line-height: 35px;
+    overflow: scroll;
+    white-space: nowrap;
+}
 .bg-w{
   color: #fff;
   background: #09bb07;

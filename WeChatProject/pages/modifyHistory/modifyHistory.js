@@ -7,7 +7,7 @@ Page({
    */
   data: {
     titleList:[
-'喂料量','产蛋量','破蛋数','死淘数','平均体重','平均蛋重','当日支出','当日收入','当日备注'
+'喂料量','产蛋量','破蛋数','死淘数','平均体重','平均蛋重','当日支出','当日收入'
     ],
     listData: [
 
@@ -15,7 +15,7 @@ Page({
     // 鸡舍名字
     henName:'',
     historyId:null,
-    scrollviewWid: 100,
+    scrollviewWid: null,
     pageIndex: 0,
     isHideLoadMore: true,
     totalpage: 1,

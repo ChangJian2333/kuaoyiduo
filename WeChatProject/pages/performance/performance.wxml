@@ -7,6 +7,18 @@
   </view>  -->
   <view class="henhoust_Number">鸡舍号：{{henName}}</view>
   <view class="scrollClass">
+    <view class="leftTime">
+      <!-- 入舍只数 -->
+      <view class="line-td bg-w">入舍只数</view>
+      <view class="line-td bg-g">{{sumDic.hennumber}}</view>
+      <view class="line-td bg-w">日期</view>
+      <view class="tr">  
+        <block wx:for="{{listData}}">
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.recordDate}}</view>
+          <view class="td" wx:else>{{item.recordDate}}</view>
+        </block>
+      </view>
+    </view>
     <scroll-view class="scroll-view_H" scroll-x="true" style="width: {{scrollviewWid}}px">
       <view class="line-tr">
         <block wx:for="{{sumTitleList}}">
@@ -14,8 +26,6 @@
         </block>
       </view>
       <view class="line-tr">
-        <!-- 入舍只数 -->
-        <view class="line-td bg-g">{{sumDic.hennumber}}</view>
         <!-- 现存只数 -->
         <view class="line-td bg-g">{{sumDic.numbers}}</view>
         <!-- 累计喂料量 -->
@@ -28,8 +38,7 @@
         <view class="line-td bg-g">{{sumDic.totalpay}}</view>
         
       </view>
-      <view class="line-tr" style=''>
-          <text class="line-td bg-w">日期</text>
+      <view class="line-tr">
           <text class="line-td bg-w">日龄</text>
           <view class='line-sumtd'>
             <view class="line-sumtd-top bg-w">近10天累计</view>
@@ -40,14 +49,7 @@
           <text class="line-td-br bg-w" >150天后\n累计料蛋</text>
           <view class="line-td bg-w">蛋重(g)</view>
           <view class="line-td bg-w">当天产蛋率</view>
-          <view class="line-td bg-w">备注</view>
-      </view>
-<!-- 日期 -->
-      <view class="tr">  
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.recordDate}}</view>
-          <view class="td" wx:else>{{item.recordDate}}</view>
-        </block>
+          <view class="line-remork bg-w">备注</view>
       </view>
 <!-- 日龄 -->
       <view class="tr"> 
@@ -99,10 +101,10 @@
         </block>
       </view>
 <!-- 备注       -->
-      <view class="tr"> 
+      <view class="tr-remork"> 
         <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.remark}}</view>
-          <view class="td" wx:else>{{item.remark}}</view>
+          <view class="td-remork bg-g" wx:if="{{index % 2 == 0}}">{{item.remark}}</view>
+          <view class="td-remork" wx:else>{{item.remark}}</view>
         </block>
       </view>
 

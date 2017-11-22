@@ -87,15 +87,7 @@
     width:40%;
     justify-content: center;
     text-align: center;
-    font-size: 14px;
-}
-
-.td-link {
-    width:40%;
-    justify-content: center;
-    text-align: center;
-    color: #09bb07;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .bg-w{
@@ -112,5 +104,5 @@
   display: flex;
   height: 35px;
   align-items: center;
-  font-size: 16px;
+  font-size: 17px;
 }

@@ -7,7 +7,6 @@ Page({
    */
   data: {
     sumTitleList: [
-      { 'text':'入舍只数'},
       { 'text':'现存只数'},
       { 'text':'累计喂料量'},
       { 'text':'累计产蛋量'},
@@ -15,7 +14,6 @@ Page({
       { 'text':'累计支出'},
     ],
     titleList: [
-      { 'text':'日期'},
       { 'text':'日龄'},
       { 'text':'料蛋比（10天）'},
       { 'text':'产蛋量（10天）'},
@@ -125,7 +123,7 @@ Page({
         that.setData({
           historyId: options.historyId,
           henName: options.henName,
-          scrollviewWid: windowWidth - 20,
+          scrollviewWid: windowWidth - 20 - 100,
           henNumber: options.henNumber,
           status: options.status,
         });

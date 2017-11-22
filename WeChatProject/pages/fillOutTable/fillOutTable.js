@@ -181,9 +181,10 @@ Page({
     var that = this;
     var status = this.checkParam()
     if (status){
-      if (this.data.dieNumber == this.data.liveNumber) {
+      var nowNumber = this.data.liveNumber - this.data.dieNumber
+      if (nowNumber < 100) {
         wx.showModal({
-          title: '现存栏数不足1只',
+          title: '现存栏数不足100只',
           content: '本批鸡是否全部淘汰？淘汰后不能修改本批次的历史记录！',
           success: function (res) {
             if (res.confirm) {
@@ -255,7 +256,7 @@ Page({
               if (res.confirm) {
                 console.log('用户点击确定');
                 wx.navigateTo({
-                  url: '../performance/performance?henNumber=' + that.data.historyId +'&status=1',
+                  url: '../performance/performance?henNumber=' + that.data.historyId + '&status=1' + '&henName=' + that.data.henName,
                 })
               } else { //返回上级页面
                 wx.navigateBack({

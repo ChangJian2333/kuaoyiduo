@@ -8,7 +8,7 @@
   <view class="table">
     <view class="tr-header">
       <view class="td-header">舍号: {{henName}}</view>
-      <view class="td-header">现存栏数: {{liveNumber}}（只）</view>
+      <view class="td-header">现存栏数: {{liveNumber}}(只)</view>
     </view>
     <!-- <view class="tr-list">
         <view class="td-list">{{henName}}</view>
@@ -29,11 +29,11 @@
     <block wx:for="{{tableListData}}" wx:key="{{code}}">
       <view class="tr-list bg-g" wx:if="{{index % 2 == 0}}">
         <view class="td-list">{{item.text}}</view>
-        <input bindinput="bindKeyInput" value="{{item.value}}" type="{{item.keyboard}}" data-tag="{{item.code}}" placeholder="{{item.placeholder}}"/>
+        <input class='font-input' bindinput="bindKeyInput" value="{{item.value}}" type="{{item.keyboard}}" data-tag="{{item.code}}" placeholder="{{item.placeholder}}"/>
       </view>
       <view class="tr-list" wx:else>
         <view class="td-list">{{item.text}}</view>
-        <input bindinput="bindKeyInput" value="{{item.value}}" type="{{item.keyboard}}" data-tag="{{item.code}}" placeholder="{{item.placeholder}}"/>
+        <input class='font-input' bindinput="bindKeyInput" value="{{item.value}}" type="{{item.keyboard}}" data-tag="{{item.code}}" placeholder="{{item.placeholder}}"/>
       </view>
     </block>
   </view>

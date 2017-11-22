@@ -39,6 +39,7 @@ Page({
     ],
     sumDic:{},
     scrollviewWid:null,
+    henName:null,
     henNumber:null,
     pageIndex:1,
     isHideLoadMore:true,

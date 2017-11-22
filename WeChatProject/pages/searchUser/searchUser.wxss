@@ -56,35 +56,38 @@ page{
              background-color:rgb(255, 255, 255); 
              margin-left: 10px; 
              margin-right: 10px; 
-             height: 30px; 
+             height: 35px; 
              border-radius: 3px;
              position: relative; 
+             border-color: #09bb07;
+             border-width: 0.5px;
+             border-style: solid;
             
 }
 
 /*名字*/
 .wx-label_name{
-               height: 30px; 
+               line-height: 35px; 
                margin-top: 0px; 
                margin-left: 0px;
                width: 50%;
                 display: inline-block;  
-               font-size: 14px; 
+               font-size: 16px; 
                text-align: center; 
-               color: rgba(247,103,82,1);
+               color: #09bb07; 
                justify-content: center;
  }
  /*电话*/
 .wx-label_phoneNumber{ 
-                height: 30px; 
+                line-height: 35px; 
                 margin-left: 0px; 
                 margin-right: 0px; 
                 margin-top: 0px;
                 margin-bottom: 0px;
                  display: inline-block;  
                 text-align: center; 
-                font-size: 14px;
-                color: rgba(247,103,82,1);
+                font-size: 16px;
+                color: #09bb07; 
                 padding: 2px;
                 justify-content: center; 
   }

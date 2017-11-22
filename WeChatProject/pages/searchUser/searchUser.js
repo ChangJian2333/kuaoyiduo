@@ -23,7 +23,7 @@ Page({
   pushToHenhonseList(e) {
     var itemData = e.currentTarget.dataset.tag;
     wx.navigateTo({
-      url: '../userHenhouseList/userHenhouseList?phone=' + itemData.phone,
+      url: '../userHenhouseList/userHenhouseList?phone=' + itemData.phone + '&name=' + itemData.firstName,
     })
   },
 

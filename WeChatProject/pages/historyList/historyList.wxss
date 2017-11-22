@@ -25,7 +25,7 @@
 
 .header-placeholder {
   position: absolute;
-  top: 50px;
+  top: 10px;
   left: 20px;
   right: 20px;
   height: 30px;
@@ -36,7 +36,7 @@
 .table {
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 73px;
+  margin-top: 33px;
   margin-bottom: 20px;
 }
 .tr {

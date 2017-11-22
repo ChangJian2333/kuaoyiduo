@@ -7,8 +7,8 @@
     </view>
   </view>   -->
   <view class="regist-title">
-      <view class="regist-title-left" bindtap="clickOnlineHenhouse">查看记录中</view>
-      <view class="regist-title-right" bindtap="clickEndHenhouse">查看已淘汰</view>
+      <button class="regist-title-left" bindtap="clickOnlineHenhouse">查看记录中</button>
+      <button class="regist-title-right" bindtap="clickEndHenhouse">查看已淘汰</button>
   </view>
   <view class="placeholder-title">
       <text>点击鸡舍号或者日期，可以查看对应鸡舍的生产性能</text>

@@ -1,9 +1,9 @@
 <!--historyList.wxml-->
 <view class="content">
   <view class="header">
-    <view class="header-title">
+    <!-- <view class="header-title">
       <text>已淘汰记录</text>
-    </view>
+    </view> -->
     <view class="header-placeholder">点击鸡舍号查看对应记录</view>
   </view>  
   <view class="table">

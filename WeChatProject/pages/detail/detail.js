@@ -7,9 +7,7 @@ Page({
    */
   data: {
     listData: [
-      { 'henName': '一号鸡舍', 'recordDate': '2017-05-09' },
-      { 'henName': '一号鸡舍', 'recordDate': '2017-05-09' },
-      { 'henName': '一号鸡舍', 'recordDate': '2017-05-09' },
+      
     ],
     isAdmin:false,
     status:null,
@@ -30,7 +28,7 @@ Page({
   pushToPerformance: function (e) {
     var itemData = e.currentTarget.dataset.tag;
     wx.navigateTo({
-      url: '../performance/performance?henNumber=' + itemData.id,
+      url: '../performance/performance?henNumber=' + itemData.id + '&henName=' + itemData.henName,
     })
   },
 

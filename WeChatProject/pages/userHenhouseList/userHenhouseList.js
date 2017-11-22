@@ -11,6 +11,7 @@ Page({
     ],
     lookStatus:'1',
     phone:null,
+    name:null,
   },
   /**
      * 点击查看记录中批次
@@ -38,7 +39,7 @@ Page({
   pushToPerformance: function (e) {
     var itemData = e.currentTarget.dataset.tag;
     wx.navigateTo({
-      url: '../performance/performance?henNumber=' + itemData.id,
+      url: '../performance/performance?henNumber=' + itemData.id + '&henName=' + itemData.henName,
     })
   },
 
@@ -56,8 +57,10 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      phone:options.phone
+      phone:options.phone,
+      name: options.name + '的鸡舍列表',
     })
+    wx.setNavigationBarTitle({ title: this.data.name })
     this.pullData();
   },
 

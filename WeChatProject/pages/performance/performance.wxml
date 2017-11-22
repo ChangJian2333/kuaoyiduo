@@ -96,8 +96,8 @@
 <!-- 当天产蛋率       -->
       <view class="tr"> 
         <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.dayrate}}</view>
-          <view class="td" wx:else>{{item.dayrate}}</view>
+          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.dayrate}}%</view>
+          <view class="td" wx:else>{{item.dayrate}}%</view>
         </block>
       </view>
 <!-- 备注       -->

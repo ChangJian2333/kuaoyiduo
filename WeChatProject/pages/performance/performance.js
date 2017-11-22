@@ -67,6 +67,11 @@ Page({
         console.log(res)
         if (code == 1) {
           that.data.totalpage = res.data.totalpage;
+          for (var i = 0; i < array.length; i++) {
+            var dayrate = array[i].dayrate * 100
+            array[i].dayrate = dayrate.toFixed(2)
+            console.log(array[i].dayrate)
+          }
           console.log(array)
           var dataSource = that.data.listData
           if (that.data.pageIndex > 1){

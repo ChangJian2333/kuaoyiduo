@@ -177,12 +177,27 @@ Page({
           })
         } else {
           console.log('请求失败了');
+          var subcode = res.data.resp_head.subcode
           var message = res.data.resp_head.message
-          wx.showToast({
-            title: message,
-            icon: 'fail',
-            duration: 1000
-          })
+          if(subcode == '1002'){
+            wx.showModal({
+              title: '鸡舍号已存在',
+              content: '舍号已经被注册过，建议在舍号前加年份！',
+              showCancel:false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定');
+                  
+                }
+              }
+            })
+          }else{
+            wx.showToast({
+              title: message,
+              icon: 'fail',
+              duration: 1000
+            })
+          }
         }
       },
       fail: function (res) {

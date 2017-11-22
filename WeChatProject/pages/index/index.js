@@ -8,7 +8,7 @@ Page({
     username:null,
     listData:[
       { 'icon': '../image/zhuce.png', 'text': '注册新养殖' },
-      { 'icon': '../image/jilu.png', 'text': '查看记录中' },
+      { 'icon': '../image/jilu.png', 'text': '填写新记录' },
       { 'icon': '../image/taotai.png', 'text': '查看已淘汰' },
       { 'icon': '../image/search.png', 'text': '搜索内部鸡舍' },
     ],

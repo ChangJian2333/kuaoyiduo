@@ -2,6 +2,7 @@
 var app = getApp()
 Page({
 
+// ceshi 
   /**
    * 页面的初始数据
    */

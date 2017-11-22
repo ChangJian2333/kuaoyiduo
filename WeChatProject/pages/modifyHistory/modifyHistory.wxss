@@ -41,16 +41,27 @@
 
 .scrollClass {
   margin-top: 8px;
-  margin-bottom: 20px;
   display: flex;
 }
 .leftTime {
   margin-left: 10px;
   margin-top: 0px;
   width: 100px;
+  white-space: nowrap;
 
 }
-
+.line-tr {
+  display: flex;
+  width: 900px;
+  font-size: 16px;
+  height: 35px;
+}
+.line-td {
+    width:100px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 35px;
+}
 .tr {
   display: inline-block;
   width: 100px;

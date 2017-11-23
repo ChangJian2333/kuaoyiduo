@@ -29,13 +29,13 @@
         <!-- 现存只数 -->
         <view class="line-td bg-g">{{sumDic.numbers}}</view>
         <!-- 累计喂料量 -->
-        <view class="line-td bg-g">{{sumDic.totalforageWeight}}</view>
+        <view class="line-td bg-g">{{sumDic.totalforageWeight}}(斤)</view>
         <!-- 累计产蛋量 -->
-        <view class="line-td bg-g">{{sumDic.totaleggWeight}}</view>
+        <view class="line-td bg-g">{{sumDic.totaleggWeight}}(斤)</view>
         <!-- 累计收入 -->
-        <view class="line-td bg-g">{{sumDic.totalearn}}</view>
+        <view class="line-td bg-g">{{sumDic.totalearn}}(元)</view>
         <!-- 累计支出 -->
-        <view class="line-td bg-g">{{sumDic.totalpay}}</view>
+        <view class="line-td bg-g">{{sumDic.totalpay}}(元)</view>
         
       </view>
       <view class="line-tr">
@@ -43,8 +43,8 @@
           <view class='line-sumtd'>
             <view class="line-sumtd-top bg-w">近10天累计</view>
             <view class="line-sumtd-bottom bg-w">料蛋比</view>
-            <view class="line-sumtd-bottom bg-w">产蛋量</view>
-            <view class="line-sumtd-bottom bg-w">喂料量</view>
+            <view class="line-sumtd-bottom bg-w">产蛋量(斤)</view>
+            <view class="line-sumtd-bottom bg-w">喂料量(斤)</view>
           </view>
           <text class="line-td-br bg-w" >150天后\n累计料蛋</text>
           <view class="line-td bg-w">蛋重(g)</view>

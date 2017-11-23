@@ -21,73 +21,32 @@
         </block>
         <view class="line-remork bg-w">当日备注</view>
       </view>
-      <view class="tr">
-        <!-- 喂料量 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.forageWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="WLLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.forageWeight}}" wx:else class="td" bindblur="WLLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr">
-        <!-- 产蛋量 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.eggWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="CDLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.eggWeight}}" wx:else class="td" bindblur="CDLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr">
-        <!-- 破蛋数 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.smashEgg}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="PDSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.smashEgg}}" wx:else class="td" bindblur="PDSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr">
-        <!-- 死淘数 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.dieNumber}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.dieNumber}}" wx:else class="td" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr">
-        <!-- 平均体重 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.avgWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="PJTZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.avgWeight}}" wx:else class="td" bindblur="PJTZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr">
-        <!-- 平均蛋重 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.avgeggWeight}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="PJDZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.avgeggWeight}}" wx:else class="td" bindblur="PJDZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr">
-        <!-- 当日支出 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.pay}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="DRZCbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.pay}}" wx:else class="td" bindblur="DRZCbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr">
-        <!-- 当日收入 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.earn}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.earn}}" wx:else class="td" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
-      <view class="tr-remork">
-        <!-- 当日备注 -->
-        <block wx:for="{{listData}}">
-           <input value="{{item.remark}}" wx:if="{{index % 2 == 0}}" class="td bg-g" bindblur="DRBZbindKeyBlur" type="text" data-tag="{{index}}" placeholder=""/>
-           <input value="{{item.remark}}" wx:else class="td" bindblur="DRBZbindKeyBlur" type="text" data-tag="{{index}}" placeholder=""/>
-        </block>
-      </view>
+      <block wx:for="{{listData}}">
+        <view class="tr-test">
+          <input value="{{item.forageWeight}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="WLLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+          <input value="{{item.forageWeight}}" wx:else class="td-test" bindblur="WLLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+          <input value="{{item.eggWeight}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="CDLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.eggWeight}}" wx:else class="td-test" bindblur="CDLbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.smashEgg}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="PDSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.smashEgg}}" wx:else class="td-test" bindblur="PDSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.dieNumber}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.dieNumber}}" wx:else class="td-test" bindblur="STSbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.avgWeight}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="PJTZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.avgWeight}}" wx:else class="td-test" bindblur="PJTZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.avgeggWeight}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="PJDZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.avgeggWeight}}" wx:else class="td-test" bindblur="PJDZbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.pay}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="DRZCbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.pay}}" wx:else class="td-test" bindblur="DRZCbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.earn}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.earn}}" wx:else class="td-test" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.remark}}" wx:if="{{index % 2 == 0}}" class="td-test-remark bg-g" bindblur="DRBZbindKeyBlur" type="text" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.remark}}" wx:else class="td-test-remark" bindblur="DRBZbindKeyBlur" type="text" data-tag="{{index}}" placeholder=""/>
+        </view>
+      </block>
      </scroll-view> 
   </view>     
 </view>
-<!-- <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+ <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
   <view class="weui-loading"></view>
   <view class="weui-loadmore__tips">正在加载</view>
-</view> -->
+</view> 

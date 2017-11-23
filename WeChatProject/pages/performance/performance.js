@@ -24,16 +24,7 @@ Page({
       { 'text':'备注'},
     ],
     listData: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
+      
     ],
     sumDic:{},
     scrollviewWid:null,

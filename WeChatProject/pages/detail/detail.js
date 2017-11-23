@@ -1,5 +1,6 @@
 // detail.js
 var app = getApp()
+var timeUtil = require('../../tool/TimeTool.js');  
 Page({
 
 // ceshi 
@@ -45,7 +46,27 @@ Page({
    * 点击cell 记录按钮
    */
   clickCellRecord: function (e) {
+
+    //获取当前时间戳  
+    var timestamp = timeUtil.formatTime(new Date() ,'Y-M-D')
+    console.log('当前时间戳为：' + timestamp);  
+
+
     var itemData = e.currentTarget.dataset.tag;
+    if (itemData.recordDate > timestamp){
+      wx.showModal({
+        title: '日期未到',
+        content: '不能提前填写记录！',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定');
+
+          }
+        }
+      })
+      return;
+    }
     wx.navigateTo({
       url: '../fillOutTable/fillOutTable?henName=' + itemData.henName + '&henhouseTime=' + itemData.recordDate + '&days=' + itemData.startAge + '&historyId=' + itemData.id + '&liveNumber=' + itemData.numbers,
     })
@@ -95,7 +116,7 @@ Page({
           newDate.setTime(array[i].recordDate)
           // var str = newDate.toLocaleDateString()
           // var strrrr = str.replace("/", "-")
-          array[i].recordDate = that.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
+          array[i].recordDate = timeUtil.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
           console.log(array[i].recordDate)
         }
         that.setData({
@@ -116,29 +137,7 @@ Page({
     network.request('GET',url, param, success, fail)
   },
 
-  formatTime: function (date, format) {  
   
-    var formateArr  = ['Y', 'M', 'D', 'h', 'm', 's'];  
-    var returnArr   = [];  
-  
-    returnArr.push(date.getFullYear());  
-    returnArr.push(this.formatNumber(date.getMonth() + 1));  
-    returnArr.push(this.formatNumber(date.getDate()));  
-  
-    returnArr.push(this.formatNumber(date.getHours()));  
-    returnArr.push(this.formatNumber(date.getMinutes()));  
-    returnArr.push(this.formatNumber(date.getSeconds()));  
-  
-    for(var i in returnArr){
-      format = format.replace(formateArr[i], returnArr[i]);
-    }
-    return format;  
-  },  
-
-  formatNumber:function (n) {  
-    n = n.toString()  
-    return n[1] ? n : '0' + n
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

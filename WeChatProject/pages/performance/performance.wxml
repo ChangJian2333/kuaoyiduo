@@ -51,70 +51,28 @@
           <view class="line-td bg-w">当天产蛋率</view>
           <view class="line-remork bg-w">备注</view>
       </view>
-<!-- 日龄 -->
-      <view class="tr"> 
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.days}}</view>
-          <view class="td" wx:else>{{item.days}}</view>
-        </block>
-      </view>
-<!-- 料蛋比       -->
-      <view class="tr"> 
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate}}</view>
-          <view class="td" wx:else>{{item.eggrate}}</view>
-        </block>
-      </view>
-<!-- 产蛋量       -->
-      <view class="tr"> 
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.sumegg}}</view>
-          <view class="td" wx:else>{{item.sumegg}}</view>
-        </block>
-      </view>
-<!-- 喂料量       -->
-      <view class="tr"> 
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.sumfor}}</view>
-          <view class="td" wx:else>{{item.sumfor}}</view>
-        </block>
-      </view>
-<!-- 150天后累计料蛋比       -->
-      <view class="tr"> 
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate2}}</view>
-          <view class="td" wx:else>{{item.eggrate2}}</view>
-        </block>
-      </view>
-<!-- 蛋重 -->
-      <view class="tr"> 
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.avgegg}}</view>
-          <view class="td" wx:else>{{item.avgegg}}</view>
-        </block>
-      </view>
-<!-- 当天产蛋率       -->
-      <view class="tr"> 
-        <block wx:for="{{listData}}">
-          <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.dayrate}}%</view>
-          <view class="td" wx:else>{{item.dayrate}}%</view>
-        </block>
-      </view>
-<!-- 备注       -->
-      <view class="tr-remork"> 
-        <block wx:for="{{listData}}">
-          <view class="td-remork bg-g" wx:if="{{index % 2 == 0}}">{{item.remark}}</view>
-          <view class="td-remork" wx:else>{{item.remark}}</view>
-        </block>
-      </view>
 
-      <!-- <block wx:for="{{listData}}">
-        <view class="tr">
-          <block wx:for="{{titleList}}">
-            <view class="td bg-w">{{item.text}}</view>
-          </block>
+       
+      <block wx:for="{{listData}}">
+        <view class="tr-test">
+          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.days}}</view>
+          <view class="td-test" wx:else>{{item.days}}</view>
+          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate}}</view>
+          <view class="td-test" wx:else>{{item.eggrate}}</view>
+          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.sumegg}}</view>
+          <view class="td-test" wx:else>{{item.sumegg}}</view>
+          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.sumfor}}</view>
+          <view class="td-test" wx:else>{{item.sumfor}}</view>
+          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate2}}</view>
+          <view class="td-test" wx:else>{{item.eggrate2}}</view>
+          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.avgegg}}</view>
+          <view class="td-test" wx:else>{{item.avgegg}}</view>
+          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.dayrate}}%</view>
+          <view class="td-test" wx:else>{{item.dayrate}}%</view>
+          <view class="td-test-remork bg-g" wx:if="{{index % 2 == 0}}">{{item.remark}}</view>
+          <view class="td-test-remork" wx:else>{{item.remark}}</view>
         </view>
-      </block> -->
+      </block>
     </scroll-view>
   </view>     
 </view>

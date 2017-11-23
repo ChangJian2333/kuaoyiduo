@@ -245,7 +245,6 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        hudTool.cancelLoading()
         console.log(res.data);
         var code = res.data.resp_head.retcode
         if (code == 1) {
@@ -268,6 +267,7 @@ Page({
         }else{
           that.data.isCommit = false;
         }
+        hudTool.cancelLoading()
       },
       fail: function (res) {
         that.data.isCommit = false;

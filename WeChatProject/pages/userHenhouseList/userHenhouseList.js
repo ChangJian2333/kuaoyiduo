@@ -1,5 +1,6 @@
 
 var app = getApp()
+var timeUtil = require('../../tool/TimeTool.js')
 Page({
 
   /**
@@ -86,7 +87,7 @@ Page({
         newDate.setTime(array[i].recordDate)
         // var str = newDate.toLocaleDateString()
         // var strrrr = str.replace("/", "-")
-        array[i].recordDate = that.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
+        array[i].recordDate = timeUtil.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
         console.log(array[i].recordDate)
       }
       that.setData({

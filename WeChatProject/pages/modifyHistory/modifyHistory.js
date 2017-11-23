@@ -1,5 +1,6 @@
 // modifyHistory.js
 var app = getApp()
+var timeUtil = require('../../tool/TimeTool.js');  
 Page({
 
   /**
@@ -238,7 +239,7 @@ changeRequest:function(param){
           for (var i = 0; i < array.length; i++) {
             var newDate = new Date();
             newDate.setTime(array[i].recordDate)
-            array[i].recordDate = that.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
+            array[i].recordDate = timeUtil.formatTime(newDate, 'Y-M-D')//strrrr.replace("/", "-")
             console.log(array[i].recordDate)
           }
           var dataSource = that.data.listData
@@ -279,30 +280,6 @@ changeRequest:function(param){
         wx.stopPullDownRefresh() //停止下拉刷新
       },
     })
-  },
-
-  formatTime: function (date, format) {
-
-    var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
-    var returnArr = [];
-
-    returnArr.push(date.getFullYear());
-    returnArr.push(this.formatNumber(date.getMonth() + 1));
-    returnArr.push(this.formatNumber(date.getDate()));
-
-    returnArr.push(this.formatNumber(date.getHours()));
-    returnArr.push(this.formatNumber(date.getMinutes()));
-    returnArr.push(this.formatNumber(date.getSeconds()));
-
-    for (var i in returnArr) {
-      format = format.replace(formateArr[i], returnArr[i]);
-    }
-    return format;
-  },
-
-  formatNumber: function (n) {
-    n = n.toString()
-    return n[1] ? n : '0' + n
   },
 
   /**

@@ -68,7 +68,7 @@
 .line-remork
 {
   width:400px;
-    text-align: center;
+    text-align: left;
     font-size: 17px;
     line-height: 35px;
 }
@@ -129,7 +129,7 @@
 .td-test-remark{
   float: left;
     width:400px;
-    text-align: center;
+    text-align: left;
     font-size: 16px;
     height: 35px;
     line-height: 35px;

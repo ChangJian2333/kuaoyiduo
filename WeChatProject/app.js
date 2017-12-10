@@ -47,8 +47,8 @@ App({
               wx.request({
 
                 // url: 'https://66981293.qcloud.la/api/getOpenId',
-                //url: 'http://192.168.1.3:8080/api/getOpenId',
-                url: getUrl,
+                url: 'http://192.168.1.2:8080/api/getOpenId',
+                //url: getUrl,
                 data: {
                   code: code
                 },
@@ -105,7 +105,7 @@ App({
     rd_session:"",
     isAdmin:false,
     // baseUrl: 'https://66981293.qcloud.la/api/wechat/',
-    //baseUrl:'http://192.168.1.3:8080/api/wechat/'
-    baseUrl: 'https://75003247.kuaiyidduoyz.com/api/wechat/',
+    baseUrl:'http://192.168.1.2:8080/api/wechat/'
+    //baseUrl: 'https://75003247.kuaiyidduoyz.com/api/wechat/',
   }
 })

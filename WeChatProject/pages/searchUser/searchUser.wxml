@@ -5,7 +5,7 @@
 <!--搜索-->
 <view class="wx-view_search">
     <label class="wx-label_search" bindtap="search" >搜索</label>
-    <input class="wx-input_search" bindblur="bindblur" placeholder="手机号" value = '{{searchTxt}}'  placeholder-style = "color: #B2A3A4;"/>  
+    <input class="wx-input_search" bindblur="bindblur" placeholder="用户Id" value = '{{searchTxt}}'  placeholder-style = "color: #B2A3A4;"/>  
 </view>
 
 <!--内容-->

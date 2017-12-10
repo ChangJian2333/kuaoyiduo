@@ -10,14 +10,9 @@ Page({
     contactsArray: [],
     phone: null,
   },
+
   onLoad: function (options) {
-    var that = this;
-    // 生命周期函数--监听页面加载
-    this.setData({
-      searchTxt: options.searchTxt
-    });
-    console.log(options.searchTxt);
-    that.pullData();
+
   },
 
   pushToHenhonseList(e) {
@@ -29,13 +24,12 @@ Page({
 
   pullData() {
     var that = this;
-    var param = {
-      'phone': that.data.searchTxt
-    };
+    var url = app.globalData.baseUrl + "getUsersByOpenid?openid=" +that.data.searchTxt  + "&rd_session=" + app.globalData.rd_session;
+    console.log(url)
     wx.request({
-      url: app.globalData.baseUrl + "getUsersByPhone?rd_session=" + app.globalData.rd_session,
+      url: url,
       method: 'GET',
-      data: param,
+      //data: param,
 
       header: {
         'content-type': 'application/json'

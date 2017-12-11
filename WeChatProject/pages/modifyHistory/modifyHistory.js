@@ -20,9 +20,16 @@ Page({
     pageIndex: 0,
     isHideLoadMore: true,
     totalpage: 1,
-
+    scrollLeftOffset: 0,
   },
-  
+  /**
+   * scrollview滚动
+   */
+  scrollviewOffsetChange: function (e) {
+    this.setData({
+      scrollLeftOffset: e.detail.scrollLeft,
+    })
+  },
   /**
    * 喂料量修改
    */

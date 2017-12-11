@@ -161,7 +161,7 @@ Page({
       }
     }
 
-    if (!(param.forageWeight > 0)){
+    if (!(param.forageWeight > 0) && title != '喂料量输入有误！'){
       title = '喂料量必填！'
     }
           

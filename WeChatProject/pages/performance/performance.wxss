@@ -5,6 +5,8 @@
   left: 0px;
   right: 0px;
   bottom: 10px;
+  display: inline-block;
+  background: white;
 }
 
 .header {
@@ -33,14 +35,18 @@
 }
 
 .henhoust_Number {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
+  left: 10px;
+  right: 10px;
+  top: 0px;
+  height: 28px;
   font-size: 17px;
+  background: white;
+  display: inline-block;
+  z-index: 1;
 }
 
 .scrollClass {
-  margin-top: 8px;
+  margin-top: 28px;
   display: flex;
 }
 .leftTime {
@@ -74,6 +80,16 @@
   margin-top: 0px;
   margin-left: 0px;
 }
+.space-td{
+    width:600px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 50px;
+    height: 50px;
+    margin-top: 0px;
+    margin-left: 0px;
+    background: white;
+}
 
 .line-td-br {
     width:100px;
@@ -106,8 +122,14 @@
   display: inline-block;
   width: 100px;
   justify-content: center;
-  margin-top: 0px;
+  margin-top: 150px;
   margin-left: 0px;
+}
+.tr-top{
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 100px;
+  height: 150px;
 }
 .tr-remork{
   margin-top: 0px;
@@ -142,21 +164,39 @@
   background: #E6F3F9;
 }
 
-.scroll-view_H{
+.scroll-view{
   margin-left: 0px;
   margin-right: 10px;
   margin-top: 0px;
   margin-bottom: 10px;
-  white-space: nowrap;  
+}
+
+.scroll-view_top{
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  height: 150;  
+  z-index: 1; 
+}
+
+.scroll-view_bottom{
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 150px;
+  margin-bottom: 0px;
 }
 
 .tr-test{
   width: 1100px;
   height: 35px;
   justify-content: center;
+  margin-top: 0px;
+  margin-left: 0px;
 }
 .td-test{
-  float: left;
+    float: left;
     width:100px;
     text-align: center;
     font-size: 16px;
@@ -175,4 +215,8 @@
     line-height: 35px;
     overflow: scroll;
     white-space: nowrap;
+}
+
+.style-fixed{
+  position: fixed;
 }

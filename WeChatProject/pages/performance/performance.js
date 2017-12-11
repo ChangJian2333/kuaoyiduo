@@ -34,6 +34,7 @@ Page({
     isHideLoadMore:true,
     status:null,
     totalpage:1,
+    scrollLeftOffset:0,
   },
 
   pullData() {
@@ -113,7 +114,14 @@ Page({
       },
     })
   },
-
+/**
+   * scrollview滚动
+   */
+  scrollviewOffsetChange:function(e){
+    this.setData({
+      scrollLeftOffset:e.detail.scrollLeft,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

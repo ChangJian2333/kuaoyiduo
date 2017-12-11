@@ -1,17 +1,14 @@
 <!--performance.wxml-->
 <view class="content">
-  <!-- <view class="header">
-    <view class="header-title">
-      <text>生产性能</text>
-    </view>
-  </view>  -->
-  <view class="henhoust_Number">鸡舍号：{{henName}}</view>
+  <view class="henhoust_Number  style-fixed">鸡舍号：{{henName}}</view>
   <view class="scrollClass">
     <view class="leftTime">
       <!-- 入舍只数 -->
-      <view class="line-td bg-w">入舍只数</view>
-      <view class="line-td bg-g">{{sumDic.hennumber}}</view>
-      <view class="line-td bg-w">日期</view>
+      <view class='tr-top style-fixed'>
+        <view class="line-td bg-w">入舍只数</view>
+        <view class="line-td bg-g">{{sumDic.hennumber}}</view>
+        <view class="line-td bg-w">日期</view>
+      </view>
       <view class="tr">  
         <block wx:for="{{listData}}">
           <view class="td bg-g" wx:if="{{index % 2 == 0}}">{{item.recordDate}}</view>
@@ -19,61 +16,64 @@
         </block>
       </view>
     </view>
-    <scroll-view class="scroll-view_H" scroll-x="true" style="width: {{scrollviewWid}}px">
-      <view class="line-tr">
-        <block wx:for="{{sumTitleList}}">
-          <view class="line-td bg-w">{{item.text}}</view>
-        </block>
-      </view>
-      <view class="line-tr">
-        <!-- 现存只数 -->
-        <view class="line-td bg-g">{{sumDic.numbers}}</view>
-        <!-- 累计喂料量 -->
-        <view class="line-td bg-g">{{sumDic.totalforageWeight}}(斤)</view>
-        <!-- 累计产蛋量 -->
-        <view class="line-td bg-g">{{sumDic.totaleggWeight}}(斤)</view>
-        <!-- 累计收入 -->
-        <view class="line-td bg-g">{{sumDic.totalearn}}(元)</view>
-        <!-- 累计支出 -->
-        <view class="line-td bg-g">{{sumDic.totalpay}}(元)</view>
-        
-      </view>
-      <view class="line-tr">
-          <text class="line-td bg-w">日龄</text>
-          <view class='line-sumtd'>
-            <view class="line-sumtd-top">近10天累计</view>
-            <view class="line-sumtd-bottom">料蛋比</view>
-            <view class="line-sumtd-bottom">产蛋量(斤)</view>
-            <view class="line-sumtd-bottom">喂料量(斤)</view>
-          </view>
-          <text class="line-td-br bg-w" >150天后\n累计料蛋比</text>
-          <view class="line-td bg-w">蛋重(g)</view>
-          <view class="line-td bg-w">当天产蛋率</view>
-          <view class="line-remork bg-w">备注</view>
-      </view>
-
-       
-      <block wx:for="{{listData}}">
-        <view class="tr-test">
-          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.days}}</view>
-          <view class="td-test" wx:else>{{item.days}}</view>
-          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate}}</view>
-          <view class="td-test" wx:else>{{item.eggrate}}</view>
-          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.sumegg}}</view>
-          <view class="td-test" wx:else>{{item.sumegg}}</view>
-          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.sumfor}}</view>
-          <view class="td-test" wx:else>{{item.sumfor}}</view>
-          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate2}}</view>
-          <view class="td-test" wx:else>{{item.eggrate2}}</view>
-          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.avgegg}}</view>
-          <view class="td-test" wx:else>{{item.avgegg}}</view>
-          <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.dayrate}}%</view>
-          <view class="td-test" wx:else>{{item.dayrate}}%</view>
-          <view class="td-test-remork bg-g" wx:if="{{index % 2 == 0}}">{{item.remark}}</view>
-          <view class="td-test-remork" wx:else>{{item.remark}}</view>
+    <view class='scroll-view'>
+      <scroll-view class="scroll-view_top style-fixed" bindscroll="scrollviewOffsetChange" scroll-left ="{{scrollLeftOffset}}" scroll-x="true" style="width: {{scrollviewWid}}px">
+        <view class="line-tr">
+          <block wx:for="{{sumTitleList}}">
+            <view class="line-td bg-w">{{item.text}}</view>
+          </block>
+          <view class='space-td'></view>
         </view>
-      </block>
-    </scroll-view>
+        <view class="line-tr">
+          <!-- 现存只数 -->
+          <view class="line-td bg-g">{{sumDic.numbers}}</view>
+          <!-- 累计喂料量 -->
+          <view class="line-td bg-g">{{sumDic.totalforageWeight}}(斤)</view>
+          <!-- 累计产蛋量 -->
+          <view class="line-td bg-g">{{sumDic.totaleggWeight}}(斤)</view>
+          <!-- 累计收入 -->
+          <view class="line-td bg-g">{{sumDic.totalearn}}(元)</view>
+          <!-- 累计支出 -->
+          <view class="line-td bg-g">{{sumDic.totalpay}}(元)</view>
+          <view class='space-td'></view>
+        </view>
+        <view class="line-tr">
+            <text class="line-td bg-w">日龄</text>
+            <view class='line-sumtd'>
+              <view class="line-sumtd-top">近10天累计</view>
+              <view class="line-sumtd-bottom">料蛋比</view>
+              <view class="line-sumtd-bottom">产蛋量(斤)</view>
+              <view class="line-sumtd-bottom">喂料量(斤)</view>
+            </view>
+            <text class="line-td-br bg-w" >150天后\n累计料蛋比</text>
+            <view class="line-td bg-w">蛋重(g)</view>
+            <view class="line-td bg-w">当天产蛋率</view>
+            <view class="line-remork bg-w">备注</view>
+        </view>
+      </scroll-view>
+      <scroll-view class="scroll-view_bottom" bindscroll="scrollviewOffsetChange" scroll-left ="{{scrollLeftOffset}}" scroll-x="true" style="width: {{scrollviewWid}}px"> 
+        <block wx:for="{{listData}}">
+          <view class="tr-test">
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.days}}</view>
+            <view class="td-test" wx:else>{{item.days}}</view>
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate}}</view>
+            <view class="td-test" wx:else>{{item.eggrate}}</view>
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.sumegg}}</view>
+            <view class="td-test" wx:else>{{item.sumegg}}</view>
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.sumfor}}</view>
+            <view class="td-test" wx:else>{{item.sumfor}}</view>
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate2}}</view>
+            <view class="td-test" wx:else>{{item.eggrate2}}</view>
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.avgegg}}</view>
+            <view class="td-test" wx:else>{{item.avgegg}}</view>
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.dayrate}}%</view>
+            <view class="td-test" wx:else>{{item.dayrate}}%</view>
+            <view class="td-test-remork bg-g" wx:if="{{index % 2 == 0}}">{{item.remark}}</view>
+            <view class="td-test-remork" wx:else>{{item.remark}}</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
   </view>     
 </view>
 <view class="weui-loadmore" hidden="{{isHideLoadMore}}">

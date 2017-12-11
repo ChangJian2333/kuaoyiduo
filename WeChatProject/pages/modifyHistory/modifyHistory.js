@@ -8,7 +8,7 @@ Page({
    */
   data: {
     titleList:[
-'喂料量','产蛋量','破蛋数','死淘数','平均体重','平均蛋重','当日支出','当日收入'
+      '喂料量', '产蛋量', '破蛋数', '死淘数', '平均体重', '平均蛋重', '当日支出', '当日收入', '当日蛋价'
     ],
     listData: [
 
@@ -138,6 +138,21 @@ Page({
       this.changeRequest(item);
     }
   },
+  /**
+ * 当日蛋价修改
+ */
+  DRDJbindKeyBlur: function (e) {
+    var item = this.data.listData[e.currentTarget.dataset.tag];
+    if (item.eggprice != e.detail.value) { // 参数修改了
+      console.log(e.currentTarget.dataset.tag);
+      console.log(e.detail.value);
+      item.eggprice = e.detail.value
+      item['henNo'] = this.data.historyId
+      console.log(item)
+      this.changeRequest(item);
+    }
+  },
+  
   /**
    * 当日备注修改
    */

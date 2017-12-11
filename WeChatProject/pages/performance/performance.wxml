@@ -41,12 +41,12 @@
       <view class="line-tr">
           <text class="line-td bg-w">日龄</text>
           <view class='line-sumtd'>
-            <view class="line-sumtd-top bg-w">近10天累计</view>
-            <view class="line-sumtd-bottom bg-w">料蛋比</view>
-            <view class="line-sumtd-bottom bg-w">产蛋量(斤)</view>
-            <view class="line-sumtd-bottom bg-w">喂料量(斤)</view>
+            <view class="line-sumtd-top">近10天累计</view>
+            <view class="line-sumtd-bottom">料蛋比</view>
+            <view class="line-sumtd-bottom">产蛋量(斤)</view>
+            <view class="line-sumtd-bottom">喂料量(斤)</view>
           </view>
-          <text class="line-td-br bg-w" >150天后\n累计料蛋</text>
+          <text class="line-td-br bg-w" >150天后\n累计料蛋比</text>
           <view class="line-td bg-w">蛋重(g)</view>
           <view class="line-td bg-w">当天产蛋率</view>
           <view class="line-remork bg-w">备注</view>

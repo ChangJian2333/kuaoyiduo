@@ -15,7 +15,8 @@ Page({
       { "code": "06", keyboard: "digit", "text": "平均蛋重(克)", "value":"", "placeholder": "请输入平均蛋重" },
       { "code": "07", keyboard: "digit", "text": "当日支出(元)", "value":"0", "placeholder": "请输入当日支出" },
       { "code": "08", keyboard: "digit", "text": "当日收入(元)", "value":"0", "placeholder": "请输入当日收入" },
-      { "code": "09", keyboard: "text", "text": "当日备注", "value": "", "placeholder": "" },
+      { "code": "09", keyboard: "digit", "text": "当日蛋价(元)", "value": "0", "placeholder": "请输入当日蛋价" },
+      { "code": "10", keyboard: "text", "text": "当日备注", "value": "", "placeholder": "" },
     ],
     // 现存只数
     liveNumber:'0',
@@ -43,6 +44,8 @@ Page({
     pay:'0',
     // 收入
     earn:'0',
+    // 蛋价
+    eggprice:'0',
     // 当日备注
     remark:'',
     // 1记录中 0结束记录
@@ -105,6 +108,11 @@ Page({
       this.setData({
         remark: e.detail.value
       })
+      console.log("修改当日蛋价");
+    } else if (e.currentTarget.dataset.tag == "10") {
+      this.setData({
+        eggprice: e.detail.value
+      })
       console.log("修改当日备注");
     }
   },
@@ -126,11 +134,10 @@ Page({
     var xiaoshu = /^0*[.]\d+$/;
     var regu = /^[0-9]+([.]{0,1}[0-9]+){0,1}$/;
     var reg = new RegExp(regu);
-    // var regggg = new RegExp(xiaoshu);
-    //  || regggg.test(param.forageWeight)
-    if (!reg.test(param.forageWeight) && param.smashEgg.length > 0) {
+    
+    if (!reg.test(param.forageWeight) && param.forageWeight.length > 0) {
       title = '喂料量输入有误！'
-    } else if (!reg.test(param.eggWeight) && param.smashEgg.length > 0) {
+    } else if (!reg.test(param.eggWeight) && param.eggWeight.length > 0) {
       title = '产蛋量输入有误！'
     } else if (!reg.test(param.smashEgg) && param.smashEgg.length > 0) {
       title = '破蛋数输入有误！'
@@ -144,8 +151,10 @@ Page({
       title = '当日支出输入有误！'
     } else if (!reg.test(param.earn) && param.earn.length > 0) {
       title = '当日收入输入有误！'
-    }
-
+    } else if (!reg.test(param.eggprice) && param.eggprice.length > 0) {
+      title = '当日蛋价输入有误！'
+    } 
+    
     if (this.data.days >= 150) {
       if (!(param.eggWeight > 0)) {
         title = '产蛋量必填！'
@@ -232,6 +241,7 @@ Page({
       earn: that.data.earn,
       remark: that.data.remark,
       dayNumber: that.data.liveNumber - that.data.dieNumber,
+      eggprice: that.data.eggprice,
       // rd_session: app.globalData.rd_session,
     };
     console.log(param);

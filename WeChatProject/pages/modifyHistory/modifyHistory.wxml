@@ -39,6 +39,8 @@
            <input value="{{item.pay}}" wx:else class="td-test" bindblur="DRZCbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
            <input value="{{item.earn}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
            <input value="{{item.earn}}" wx:else class="td-test" bindblur="DRSRbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.eggprice}}" wx:if="{{index % 2 == 0}}" class="td-test bg-g" bindblur="DRDJbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
+           <input value="{{item.eggprice}}" wx:else class="td-test" bindblur="DRDJbindKeyBlur" type="digit" data-tag="{{index}}" placeholder=""/>
            <input value="{{item.remark}}" wx:if="{{index % 2 == 0}}" class="td-test-remark bg-g" bindblur="DRBZbindKeyBlur" type="text" data-tag="{{index}}" placeholder=""/>
            <input value="{{item.remark}}" wx:else class="td-test-remark" bindblur="DRBZbindKeyBlur" type="text" data-tag="{{index}}" placeholder=""/>
         </view>

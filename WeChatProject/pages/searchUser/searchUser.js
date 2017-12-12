@@ -17,15 +17,15 @@ Page({
 
   pushToHenhonseList(e) {
     var itemData = e.currentTarget.dataset.tag;
-    var util = require('../../utils/util.js')
     wx.navigateTo({
-      url: '../userHenhouseList/userHenhouseList?phone=' + itemData.phone + '&name=' + itemData.firstName + '&nowtime=' + util.formatTime(new Date),
+      url: '../userHenhouseList/userHenhouseList?openid=' + this.data.searchTxt + '&name=' + itemData.firstName,
     })
   },
 
   pullData() {
     var that = this;
-    var url = app.globalData.baseUrl + "getUsersByOpenid?openid=" +that.data.searchTxt  + "&rd_session=" + app.globalData.rd_session;
+    var util = require('../../utils/util.js')
+    var url = app.globalData.baseUrl + "getUsersByOpenid?openid=" + that.data.searchTxt + "&rd_session=" + app.globalData.rd_session + '&nowtime=' + util.formatTime(new Date);
     console.log(url)
     wx.request({
       url: url,

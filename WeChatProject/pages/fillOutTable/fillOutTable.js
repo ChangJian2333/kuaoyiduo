@@ -205,7 +205,7 @@ Page({
             }
           }
         })
-      } else if (this.data.dieNumber > this.data.liveNumber){
+      } else if (parseFloat(this.data.dieNumber) > parseFloat(this.data.liveNumber)){
         wx.showModal({
           title: '死淘数输入有误',
           content: '死淘数超出现存栏数，请重新输入s！',

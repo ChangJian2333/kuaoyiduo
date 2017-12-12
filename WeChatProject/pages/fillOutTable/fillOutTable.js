@@ -208,7 +208,7 @@ Page({
       } else if (this.data.dieNumber > this.data.liveNumber){
         wx.showModal({
           title: '死淘数输入有误',
-          content: '死淘数超出现存栏数，请重新输入！',
+          content: '死淘数超出现存栏数，请重新输入s！',
           success: function (res) {
             if (res.confirm) {
               console.log('用户点击确定');

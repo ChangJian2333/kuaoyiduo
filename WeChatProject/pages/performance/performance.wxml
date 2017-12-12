@@ -39,6 +39,7 @@
         </view>
         <view class="line-tr">
             <text class="line-td bg-w">日龄</text>
+            <text class="line-td bg-w">当日料蛋比</text>
             <view class='line-sumtd'>
               <view class="line-sumtd-top">近10天累计</view>
               <view class="line-sumtd-bottom">料蛋比</view>
@@ -56,6 +57,8 @@
           <view class="tr-test">
             <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.days}}</view>
             <view class="td-test" wx:else>{{item.days}}</view>
+            <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.dayeggrate}}</view>
+            <view class="td-test" wx:else>{{item.dayeggrate}}</view>
             <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.eggrate}}</view>
             <view class="td-test" wx:else>{{item.eggrate}}</view>
             <view class="td-test bg-g" wx:if="{{index % 2 == 0}}">{{item.sumegg}}</view>

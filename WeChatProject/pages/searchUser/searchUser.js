@@ -17,8 +17,9 @@ Page({
 
   pushToHenhonseList(e) {
     var itemData = e.currentTarget.dataset.tag;
+    var util = require('../../utils/util.js')
     wx.navigateTo({
-      url: '../userHenhouseList/userHenhouseList?phone=' + itemData.phone + '&name=' + itemData.firstName,
+      url: '../userHenhouseList/userHenhouseList?phone=' + itemData.phone + '&name=' + itemData.firstName + '&nowtime=' + util.formatTime(new Date),
     })
   },
 

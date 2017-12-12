@@ -106,12 +106,12 @@ Page({
       console.log("修改当日收入");
     } else if (e.currentTarget.dataset.tag == "09") {
       this.setData({
-        remark: e.detail.value
+        eggprice: e.detail.value
       })
       console.log("修改当日蛋价");
     } else if (e.currentTarget.dataset.tag == "10") {
       this.setData({
-        eggprice: e.detail.value
+        remark: e.detail.value
       })
       console.log("修改当日备注");
     }

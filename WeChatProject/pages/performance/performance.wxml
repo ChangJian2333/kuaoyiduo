@@ -35,6 +35,8 @@
           <view class="line-td bg-g">{{sumDic.totalearn}}(元)</view>
           <!-- 累计支出 -->
           <view class="line-td bg-g">{{sumDic.totalpay}}(元)</view>
+          <!-- 盈亏金额 -->
+          <view class="line-td bg-g">{{sumDic.profit}}(元)</view>
           <view class='space-td'></view>
         </view>
         <view class="line-tr">

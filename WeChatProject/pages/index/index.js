@@ -52,6 +52,7 @@ Page({
 
   onLoad: function () {
     console.log('onLoad')
+    var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
       //更新数据
@@ -59,7 +60,6 @@ Page({
         userInfo: userInfo
       })
     })
-    var that = this
     that.setData({
       iconUrl: app.globalData.avatarUrl,
       username: app.globalData.nickName,

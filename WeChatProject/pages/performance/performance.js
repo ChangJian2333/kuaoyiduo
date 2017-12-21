@@ -12,6 +12,7 @@ Page({
       { 'text':'累计产蛋量'},
       { 'text':'累计收入'},
       { 'text':'累计支出'},
+      { 'text':'盈利金额'},
     ],
     titleList: [
       { 'text':'日龄'},
@@ -76,7 +77,8 @@ Page({
               dataSource = dataSource.concat(array)
           }else{
             dataSource = array
-
+            var profit = res.data.houseDTO.totalearn - res.data.houseDTO.totalpay
+            res.data.houseDTO['profit'] = profit.toFixed(2)
             that.setData({
               sumDic: res.data.houseDTO,
             })

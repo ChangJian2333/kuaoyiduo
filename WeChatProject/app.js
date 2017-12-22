@@ -11,28 +11,23 @@ App({
 
   getUserInfo: function(cb) {
     var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      })
-    }
+    //调用登录接口
+    wx.login({
+      success: function () {
+        wx.getUserInfo({
+          success: function (res) {
+            that.globalData.userInfo = res.userInfo
+            typeof cb == "function" && cb(that.globalData.userInfo)
+          }
+        })
+      }
+    })
   },
 
 
   login: function (fun) {
-    if (this.globalData.userInfo) {
-      typeof fun == "function" && fun(this.globalData.userInfo)
-    } else {
+    console.log('执行login方法')
+    
       var that = this;
       wx.login({
         success: function (res) {
@@ -63,9 +58,14 @@ App({
                   that.globalData.rd_session = res.data.rd_session;
                   var array = res.data.authorities;
                   for (var i = 0; i < array.length; i++) {
+                    console.log('服务器返回' + array[i])
                     if ('ROLE_ADMIN' == array[i]){
+                      console.log('有权限')
                       that.globalData.isAdmin = true;
                       break;
+                    }else{
+                      console.log('无权限')
+                      that.globalData.isAdmin = false;
                     }
                   }
                   if (res.data.username != null){
@@ -93,7 +93,7 @@ App({
 
         },
       })
-    }
+    
 
   },
 

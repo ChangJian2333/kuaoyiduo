@@ -4,8 +4,8 @@ var app = getApp()
 Page({
   data: {
     motto: '进入快易多养殖',
-    iconUrl:null,
-    username:null,
+    avatarUrl:null,
+    nickName:'',
     listData:[
       { 'icon': '../image/zhuce.png', 'text': '注册新养殖' },
       { 'icon': '../image/jilu.png', 'text': '填写新记录' },
@@ -25,6 +25,8 @@ Page({
       pathUrl = '../historyList/historyList'
     } else if (index == 3) { // 搜索
       pathUrl = '../searchUser/searchUser'
+      console.log(app.globalData)
+      console.log(this.data)
       if (app.globalData.isAdmin == false) { // false
         wx.showModal({
           content: '您暂时没有内部鸡舍！',
@@ -52,17 +54,28 @@ Page({
 
   onLoad: function () {
     console.log('onLoad')
+    
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+console.log('第一次渲染')
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    console.log('显示index')
+    app.login()
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo: userInfo
+        avatarUrl: userInfo.avatarUrl,
+        nickName: userInfo.nickName
       })
     })
-    that.setData({
-      iconUrl: app.globalData.avatarUrl,
-      username: app.globalData.nickName,
-    })
-  }
+  },
 })

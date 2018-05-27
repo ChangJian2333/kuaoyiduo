@@ -1,0 +1,20 @@
+<!--pages/docHome/docHome.wxml-->
+<view class='page' wx:if="{{previewShow == false}}">
+  <view class='section'>
+    <button class='btn_area' type="primary" bindtap='selfBtnClick'>自己测</button>
+    <button class='btn_area' type="primary" bindtap='otherBtnClick'>帮人测</button>
+  </view>
+</view>
+<view class='page' wx:if="{{previewShow == true}}">
+  <!-- <view class='preview_back'>
+    <image style="width: {{imagewidth}}px; height: {{imageheight}}px; transform:rotate({{rotateRight}}deg);"  class="preview_image" src='{{imgFill}}'>
+    </image>
+  </view>
+  <view class='preview_section'>
+    <view class='preview_item' bindtap='previewCancle'>取消</view>
+    <view class='preview_item' bindtap='previewRotate'>旋转</view>
+    <view class='preview_item' bindtap='previewSizeType'>原图</view>
+    <view class='preview_item' bindtap='previewSend'>完成</view>
+  </view> -->
+  <canvas canvas-id='clearCanvas' class='canvas'></canvas>
+</view>
